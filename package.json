@@ -1,0 +1,42 @@
+{
+  "name": "toiral-website",
+  "version": "1.0.0",
+  "description": "Toiral web development agency website with Firebase backend",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cd frontend && npm start",
+    "build": "cd frontend && npm run build",
+    "deploy": "node scripts/deploy.js",
+    "deploy:hosting": "node scripts/deploy.js hosting",
+    "deploy:database": "node scripts/deploy.js database",
+    "init:database": "node scripts/init-database.js",
+    "init:admin": "node scripts/init-admin.js",
+    "firebase:init": "firebase init",
+    "firebase:serve": "npm run build && firebase serve",
+    "firebase:emulators": "firebase emulators:start",
+    "setup": "npm run install:all && npm run init:database && npm run init:admin",
+    "test": "cd frontend && npm test",
+    "lint": "cd frontend && npm run lint",
+    "install:frontend": "cd frontend && npm install",
+    "install:all": "npm install && npm run install:frontend"
+  },
+  "keywords": [
+    "react",
+    "firebase",
+    "web-development",
+    "agency",
+    "portfolio"
+  ],
+  "author": "Toiral Development Team",
+  "license": "MIT",
+  "devDependencies": {
+    "firebase-tools": "^13.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "firebase": "^12.1.0"
+  }
+}

@@ -1,0 +1,21 @@
+[debug] [2025-08-21T03:28:04.839Z] ----------------------------------------------------------------------
+[debug] [2025-08-21T03:28:04.843Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\doiro\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-08-21T03:28:04.843Z] CLI Version:   14.12.1
+[debug] [2025-08-21T03:28:04.844Z] Platform:      win32
+[debug] [2025-08-21T03:28:04.844Z] Node Version:  v22.18.0
+[debug] [2025-08-21T03:28:04.845Z] Time:          Thu Aug 21 2025 09:28:04 GMT+0600 (Bangladesh Standard Time)
+[debug] [2025-08-21T03:28:04.846Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-08-21T03:28:05.364Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-21T03:28:05.365Z] > authorizing via signed-in user (socraticsoul01@gmail.com)
+[debug] [2025-08-21T03:28:05.365Z] [iam] checking project toiral-development for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2025-08-21T03:28:05.366Z] Checked if tokens are valid: false, expires at: 1755744824154
+[debug] [2025-08-21T03:28:05.367Z] Checked if tokens are valid: false, expires at: 1755744824154
+[debug] [2025-08-21T03:28:05.367Z] > refreshing access token with scopes: []
+[debug] [2025-08-21T03:28:05.371Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-08-21T03:28:05.372Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-08-21T03:28:05.753Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-08-21T03:28:05.755Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-08-21T03:28:05.784Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/toiral-development:testIamPermissions [none]
+[debug] [2025-08-21T03:28:05.784Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/toiral-development:testIamPermissions x-goog-quota-user=projects/toiral-development
+[debug] [2025-08-21T03:28:05.784Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/toiral-development:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}

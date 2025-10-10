@@ -1,0 +1,240 @@
+// Import portfolio data from Firebase export
+import { ref, set, get } from 'firebase/database';
+import { database } from '../lib/firebase';
+
+// Portfolio data from the export file
+const portfolioData = [
+  {
+    "description": "A booking platform for Nisarga Pod House in Kaptai, offering a unique experience in eco-friendly accommodation. The website showcases various pod house types, an easy-to-use reservation system, and an interactive gallery highlighting the serene",
+    "id": "2",
+    "image": "https://i.postimg.cc/FRCcxnB5/2024-05-14-1.jpg",
+    "order": 0,
+    "title": "Nisarga Pod House",
+    "url": "https://nisarga-web-1.vercel.app/"
+  },
+  {
+    "description": "MR NOOB 70 is the ultimate game blog for noobs and pros alike—get reviews, tips, updates, and gaming news served with style, humor, and real talk. Power up your play, the noob way! ",
+    "id": "1746896407679",
+    "image": "https://i.postimg.cc/YS4VMNPy/Screenshot-2025-05-11-003615.png",
+    "order": 1,
+    "title": "MR NOOB 70",
+    "url": "https://mr-noob-70.web.app/"
+  },
+  {
+    "description": "A Dark Academia-inspired website for a cozy coffee shop. The design features intellectual aesthetics, with rich visuals and an immersive experience for visitors. The site emphasizes an engaging atmosphere, perfect for book lovers and café enthusiasts.",
+    "id": "1",
+    "image": "https://i.postimg.cc/HLWZffT9/Screenshot_2025-04-29_042636.png",
+    "order": 2,
+    "title": "Nerdy Bean Coffee House",
+    "url": "https://nerdy-bean-coffee-house.vercel.app/"
+  },
+  {
+    "description": "A sleek and modern e-commerce website for Tahsin Lifestyle, showcasing high-end lifestyle products. The design is minimalist, ensuring a smooth shopping experience, with a user-friendly interface and seamless checkout.",
+    "id": "1746911355262",
+    "image": "https://i.postimg.cc/cH2FtCwF/Screenshot_2025-04-29_042806.png",
+    "order": 3,
+    "title": "Tahsin Lifestyle",
+    "url": "https://tahasin-lifestyle.vercel.app/"
+  },
+  {
+    "description": "A vibrant and interactive café website that combines functionality with style. Featuring a dynamic menu, reservation system, and special offers, it provides customers with an engaging, easy-to-navigate experience to book, browse, and enjoy.",
+    "id": "1746911356126",
+    "image": "https://i.postimg.cc/rFSfz8m9/Screenshot_2025-04-29_043030.png",
+    "order": 4,
+    "title": "Roll Xpress Cafe",
+    "url": "https://roll-xpress-cafe.vercel.app/"
+  },
+  {
+    "description": "A sophisticated and minimalist website for The White Canary Cafe, highlighting its refined menu and tranquil atmosphere. The design incorporates clean lines and soft color tones, providing a serene, inviting digital space for visitors.",
+    "id": "1746911355694",
+    "image": "https://i.postimg.cc/pd0GxqTb/Screenshot_2025-04-29_042842.png",
+    "order": 5,
+    "title": "The White Canary Cafe",
+    "url": "https://the-white-canary-cafe.vercel.app/"
+  },
+  {
+    "description": "An elegant café website featuring an admin panel that allows efficient management of reservations, menu items, and event listings. The front-end design is simple yet stylish, emphasizing ease of use and aesthetic appeal for visitors and admins alike.",
+    "id": "1746911355927",
+    "image": "https://i.postimg.cc/dQZHPRcp/Screenshot_2025-04-29_042936.png",
+    "order": 6,
+    "title": "Cafe Colombia",
+    "url": "https://cafe-colombia01.vercel.app/"
+  },
+  {
+    "description": "A unique platform that merges café management with analytics, providing business owners with detailed insights into customer preferences, sales data, and more. The sleek design emphasizes data visualization, making business performance easy to monitor.",
+    "id": "1746911356303",
+    "image": "https://i.postimg.cc/Kz3hfc16/Screenshot_2025-04-21_100405.png",
+    "order": 7,
+    "title": "Cafelytics",
+    "url": "https://cafelytics.vercel.app/"
+  },
+  {
+    "description": "A contemporary, visually striking website for Azuki Dhaka Gamma. This site blends cutting-edge design with functionality, offering a smooth and intuitive user experience that highlights their services and creative atmosphere.",
+    "id": "1746911476704",
+    "image": "https://i.postimg.cc/15xW9g9t/Screenshot_2025-04-29_043137.png",
+    "order": 8,
+    "title": "Azuki Dhaka Gamma",
+    "url": "https://azuki-dhaka-gamma.vercel.app/"
+  },
+  {
+    "description": "An artistic and creative website for Sketch Cafe, designed to reflect the café's playful and artistic vibe. The site features unique design elements that emphasize visual storytelling, making it an engaging online representation of the café's personality.",
+    "id": "1746911476967",
+    "image": "https://i.postimg.cc/JzMPk9HC/Screenshot_2025-04-29_043224.png",
+    "order": 9,
+    "title": "Sketch Cafe",
+    "url": "https://sketch-cafe.vercel.app/"
+  },
+  {
+    "description": "A warm and inviting website designed specifically for Baby Cafe, with a family-friendly aesthetic. The site includes an easy-to-use menu, booking system, and playful elements that align with the cafe's cozy and welcoming vibe.",
+    "id": "1746911477376",
+    "image": "https://i.postimg.cc/g00sM8KM/Screenshot_2025-04-29_043254.png",
+    "order": 10,
+    "title": "Baby Cafe",
+    "url": "https://baby-cafe.vercel.app/"
+  },
+  {
+    "description": "A dynamic café website designed to engage customers with its modern, bold look. It features an intuitive menu, event booking system, and promotions, providing a complete digital experience for café lovers.",
+    "id": "1746911477752",
+    "image": "https://i.postimg.cc/52gpqn8Y/Screenshot_2025-04-29_043313.png",
+    "order": 11,
+    "title": "Bru Town",
+    "url": "https://bru-town-cafe.vercel.app/"
+  },
+  {
+    "description": "A stylish, modern website for Capawcino, featuring an interactive menu, sleek navigation, and an elegant design. The site is tailored for coffee lovers who want to explore the menu and book their next visit with ease.",
+    "id": "1746911478088",
+    "image": "https://i.postimg.cc/yNrP2xQ7/Screenshot_2025-04-29_043414.png",
+    "order": 12,
+    "title": "Capawcino",
+    "url": "https://capawcino.vercel.app/"
+  },
+  {
+    "description": "Yomo is an app launcher that brings all your favorite anime-themed applications into one magical place. It's designed to give you easy access to a variety of anime-inspired tools and experiences. Whether you're looking to personalize your digital space with anime aesthetics or explore new anime-related apps, Yomo has got you covered",
+    "id": "1746952798633",
+    "image": "https://i.postimg.cc/RFNkmW0R/Screenshot-2025-05-11-144051.png",
+    "order": 13,
+    "title": "yomo",
+    "url": "https://yomo.vercel.app/"
+  },
+  {
+    "description": "The largest & the only lakeview restaurant of Kaptai.. Our goal is to serve our beloved customers the best food.. Bengali, Indian, Chinese available.. Special facilities - Tents, Boat tour",
+    "id": "1747726439725",
+    "image": "https://i.postimg.cc/PJVhjdGm/Screenshot-2025-05-20-133337.png",
+    "order": 14,
+    "title": "Kaptai Dhaba",
+    "url": "https://kaptai-dhaba.vercel.app/"
+  },
+  {
+    "description": "Cozy Brews is a calm, aesthetic landing page for a boutique coffee brand or café. It's clean, cozy, and built to make you wanna grab a cup, curl up in a corner, and romanticize your life like you're the main character in a rainy-day indie film.",
+    "id": "1746953079993",
+    "image": "https://i.postimg.cc/J0GHdWS8/Screenshot-2025-05-11-161654.png",
+    "order": 15,
+    "title": "cozy brews ",
+    "url": "https://cozy-brews-flax.vercel.app/"
+  },
+  {
+    "description": "Crafted a clean, user-friendly UI/UX design with responsive layouts, modern aesthetics, and intuitive user flow for web and mobile.",
+    "id": "1750252168827",
+    "image": "https://i.postimg.cc/yx5SqJqq/Screenshot-2025-06-18-190823.png",
+    "order": 16,
+    "title": "User-Centered Design",
+    "url": "https://alif-shahriar-s-portfolio.web.app/"
+  }
+];
+
+/**
+ * Transform portfolio data to match the current Firebase structure
+ */
+const transformPortfolioData = (portfolioItems) => {
+  return portfolioItems.map(item => ({
+    id: item.id,
+    title: item.title,
+    description: item.description,
+    category: "Web Development", // Default category
+    technologies: ["React", "JavaScript", "CSS"], // Default technologies
+    image: item.image,
+    url: item.url,
+    github: "#", // Default github link
+    featured: item.order < 6, // First 6 projects are featured
+    status: "completed",
+    order: item.order,
+    createdAt: Date.now(),
+    updatedAt: Date.now()
+  }));
+};
+
+/**
+ * Import portfolio data to Firebase
+ */
+export const importPortfolioData = async () => {
+  try {
+    console.log('🚀 Importing portfolio data to Firebase...');
+    
+    const projectsRef = ref(database, 'website/projects');
+    
+    // Check if projects already exist
+    const snapshot = await get(projectsRef);
+    const existingProjects = snapshot.exists() ? snapshot.val() : [];
+    
+    // Transform the portfolio data
+    const transformedProjects = transformPortfolioData(portfolioData);
+    
+    // Merge with existing projects (avoid duplicates)
+    const existingIds = Array.isArray(existingProjects) 
+      ? existingProjects.map(p => p.id) 
+      : [];
+    
+    const newProjects = transformedProjects.filter(
+      project => !existingIds.includes(project.id)
+    );
+    
+    if (newProjects.length === 0) {
+      console.log('✅ All portfolio projects already exist in database');
+      return { 
+        success: true, 
+        message: 'All projects already exist',
+        imported: 0,
+        total: portfolioData.length
+      };
+    }
+    
+    // Combine existing and new projects
+    const allProjects = Array.isArray(existingProjects) 
+      ? [...existingProjects, ...newProjects]
+      : newProjects;
+    
+    // Sort by order
+    allProjects.sort((a, b) => (a.order || 0) - (b.order || 0));
+    
+    // Save to Firebase
+    await set(projectsRef, allProjects);
+    
+    console.log(`✅ Successfully imported ${newProjects.length} new projects`);
+    console.log(`📊 Total projects in database: ${allProjects.length}`);
+    
+    return { 
+      success: true, 
+      message: `Imported ${newProjects.length} new projects`,
+      imported: newProjects.length,
+      total: allProjects.length
+    };
+    
+  } catch (error) {
+    console.error('❌ Failed to import portfolio data:', error);
+    return { 
+      success: false, 
+      error: error.message 
+    };
+  }
+};
+
+/**
+ * Get portfolio statistics
+ */
+export const getPortfolioStats = () => {
+  return {
+    totalProjects: portfolioData.length,
+    categories: [...new Set(portfolioData.map(() => "Web Development"))],
+    featuredCount: portfolioData.filter((_, index) => index < 6).length
+  };
+};

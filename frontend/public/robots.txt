@@ -1,0 +1,47 @@
+# Robots.txt for Toiral - Professional Web Development Agency
+# https://toiral-development.web.app
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /Mahia23/
+Disallow: /admin/
+Disallow: /private/
+
+# Allow important pages
+Allow: /
+Allow: /portfolio
+Allow: /service/
+Allow: /privacy-policy
+Allow: /terms-of-service
+Allow: /cookies
+
+# Sitemap location
+Sitemap: https://toiral-development.web.app/sitemap.xml
+
+# Crawl delay (optional - helps prevent server overload)
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Disallow: /Mahia23/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /Mahia23/
+
+User-agent: Slurp
+Allow: /
+Disallow: /Mahia23/
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
