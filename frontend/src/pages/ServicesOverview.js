@@ -42,25 +42,14 @@ const ServicesOverview = () => {
         url="https://toiral.com/services"
       />
       <Header mousePosition={mousePosition} />
-      <main className="min-h-screen pt-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-600 mb-6">
-              Our Services
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We offer comprehensive digital solutions to transform your vision into reality. 
-              From custom web development to strategic SEO, we've got you covered.
-            </p>
+      <main className="min-h-screen">
+        {loading ? (
+          <div className="flex justify-center items-center py-20">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600"></div>
           </div>
-          {loading ? (
-            <div className="flex justify-center items-center py-20">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600"></div>
-            </div>
-          ) : (
-            <EnhancedServices data={services} mousePosition={mousePosition} />
-          )}
-        </div>
+        ) : (
+          <EnhancedServices data={services} mousePosition={mousePosition} />
+        )}
       </main>
       <Footer />
     </>
