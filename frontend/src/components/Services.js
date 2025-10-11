@@ -136,7 +136,7 @@ const Services = ({ data, mousePosition }) => {
               >
                 {/* Enhanced Card Container */}
                 <div 
-                  className="relative h-full rounded-2xl p-6 sm:p-8 lg:p-10 border border-gray-200/50"
+                  className="relative h-full rounded-2xl overflow-hidden border border-gray-200/50"
                   style={{
                     background: 'linear-gradient(145deg, #ffffff, #f8fafc)',
                     boxShadow: hoveredCard === service.id
@@ -144,39 +144,82 @@ const Services = ({ data, mousePosition }) => {
                       : '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05)',
                   }}
                 >
-                  {/* Gradient Background Effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-br from-teal-50/50 to-cyan-50/50 transition-opacity duration-300 rounded-2xl ${
-                    hoveredCard === service.id ? 'opacity-100' : 'opacity-30'
-                  }`}></div>
-
-                  {/* Content Container */}
-                  <div className="relative z-10 h-full flex flex-col">
-                    {/* Header Section */}
-                    <div className="flex items-start justify-between mb-6">
-                      {/* Icon Container */}
+                  {/* Service Image Section */}
+                  {service.image && (
+                    <div className="relative h-48 sm:h-56 overflow-hidden">
+                      <img 
+                        src={service.image} 
+                        alt={service.title}
+                        className={`w-full h-full object-cover transition-transform duration-500 ${
+                          hoveredCard === service.id ? 'scale-110' : 'scale-100'
+                        }`}
+                      />
+                      {/* Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-900/60"></div>
+                      
+                      {/* Icon Overlay on Image */}
                       <div
-                        className={`w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 flex items-center justify-center rounded-xl sm:rounded-2xl shadow-lg transform transition-all duration-300 ${
-                          hoveredCard === service.id ? 'scale-105 rotate-3' : 'scale-100'
+                        className={`absolute bottom-4 left-4 w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center rounded-xl shadow-lg transform transition-all duration-300 ${
+                          hoveredCard === service.id ? 'scale-110 rotate-3' : 'scale-100'
                         }`}
                         style={{
                           background: 'linear-gradient(135deg, #14b8a6, #0891b2)',
                           boxShadow: hoveredCard === service.id
-                            ? '0 10px 15px -3px rgba(20, 184, 166, 0.4)'
-                            : '0 4px 6px -1px rgba(20, 184, 166, 0.2)',
+                            ? '0 10px 15px -3px rgba(20, 184, 166, 0.5)'
+                            : '0 4px 6px -1px rgba(20, 184, 166, 0.3)',
                         }}
                       >
-                        <IconComponent className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 text-white" />
+                        <IconComponent className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                       </div>
 
-                      {/* Arrow Indicator */}
-                      <div className={`transition-all duration-300 ${
+                      {/* Arrow Indicator on Image */}
+                      <div className={`absolute top-4 right-4 transition-all duration-300 ${
                         hoveredCard === service.id ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2'
                       }`}>
-                        <div className="w-8 h-8 flex items-center justify-center rounded-full bg-teal-100">
+                        <div className="w-8 h-8 flex items-center justify-center rounded-full bg-white/90 backdrop-blur-sm">
                           <ArrowRight className="w-4 h-4 text-teal-600" />
                         </div>
                       </div>
                     </div>
+                  )}
+
+                  {/* Gradient Background Effect for cards without images */}
+                  {!service.image && (
+                    <div className={`absolute inset-0 bg-gradient-to-br from-teal-50/50 to-cyan-50/50 transition-opacity duration-300 rounded-2xl ${
+                      hoveredCard === service.id ? 'opacity-100' : 'opacity-30'
+                    }`}></div>
+                  )}
+
+                  {/* Content Container */}
+                  <div className={`relative z-10 h-full flex flex-col ${service.image ? 'p-6 sm:p-8' : 'p-6 sm:p-8 lg:p-10'}`}>
+                    {/* Header Section - Only show if no image */}
+                    {!service.image && (
+                      <div className="flex items-start justify-between mb-6">
+                        {/* Icon Container */}
+                        <div
+                          className={`w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 flex items-center justify-center rounded-xl sm:rounded-2xl shadow-lg transform transition-all duration-300 ${
+                            hoveredCard === service.id ? 'scale-105 rotate-3' : 'scale-100'
+                          }`}
+                          style={{
+                            background: 'linear-gradient(135deg, #14b8a6, #0891b2)',
+                            boxShadow: hoveredCard === service.id
+                              ? '0 10px 15px -3px rgba(20, 184, 166, 0.4)'
+                              : '0 4px 6px -1px rgba(20, 184, 166, 0.2)',
+                          }}
+                        >
+                          <IconComponent className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 text-white" />
+                        </div>
+
+                        {/* Arrow Indicator */}
+                        <div className={`transition-all duration-300 ${
+                          hoveredCard === service.id ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2'
+                        }`}>
+                          <div className="w-8 h-8 flex items-center justify-center rounded-full bg-teal-100">
+                            <ArrowRight className="w-4 h-4 text-teal-600" />
+                          </div>
+                        </div>
+                      </div>
+                    )}
 
                     {/* Title & Description */}
                     <div className="flex-grow mb-6">
@@ -222,12 +265,16 @@ const Services = ({ data, mousePosition }) => {
                   </div>
 
                   {/* Decorative Elements */}
-                  <div className={`absolute top-4 right-4 w-3 h-3 bg-gradient-to-br from-cyan-300/30 to-teal-300/30 rounded-full transition-opacity duration-300 ${
-                    hoveredCard === service.id ? 'opacity-100' : 'opacity-50'
-                  }`}></div>
-                  <div className={`absolute bottom-4 left-4 w-2 h-2 bg-gradient-to-br from-teal-300/30 to-cyan-300/30 rounded-full transition-opacity duration-300 ${
-                    hoveredCard === service.id ? 'opacity-100' : 'opacity-50'
-                  }`}></div>
+                  {!service.image && (
+                    <>
+                      <div className={`absolute top-4 right-4 w-3 h-3 bg-gradient-to-br from-cyan-300/30 to-teal-300/30 rounded-full transition-opacity duration-300 ${
+                        hoveredCard === service.id ? 'opacity-100' : 'opacity-50'
+                      }`}></div>
+                      <div className={`absolute bottom-4 left-4 w-2 h-2 bg-gradient-to-br from-teal-300/30 to-cyan-300/30 rounded-full transition-opacity duration-300 ${
+                        hoveredCard === service.id ? 'opacity-100' : 'opacity-50'
+                      }`}></div>
+                    </>
+                  )}
                 </div>
               </div>
             );
