@@ -3,6 +3,7 @@ import { ExternalLink, Clock, BookOpen, Star, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { trackCustomEvent } from '../services/analyticsService';
+import LazyImage from './ui/LazyImage';
 
 const Courses = ({ data, mousePosition }) => {
   const [isVisible, setIsVisible] = useState(false);
