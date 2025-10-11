@@ -205,7 +205,7 @@ const ServiceCard = memo(({ service, index, onLearnMore }) => {
     >
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-teal-500/20 to-blue-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
-      <div className="relative bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden" style={{height: '310px'}}>
+      <div className="relative bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden" style={{height: service.image ? '420px' : '310px'}}>
         <div
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
           style={{
@@ -219,44 +219,83 @@ const ServiceCard = memo(({ service, index, onLearnMore }) => {
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.3 }}
         >
-          {/* Header */}
-          <div className="flex items-start justify-between mb-4">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center text-white shadow-lg group-hover:shadow-cyan-500/50 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-              <IconComponent className="w-6 h-6" />
-            </div>
-            <div className={`transition-all duration-300 ${isHovered ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2'}`}>
-              <div className="w-7 h-7 flex items-center justify-center rounded-full bg-teal-100">
-                <ArrowRight className="w-3 h-3 text-teal-600" />
+          {/* Service Image */}
+          {service.image && (
+            <div className="relative h-40 overflow-hidden rounded-t-2xl">
+              <motion.img 
+                src={service.image} 
+                alt={service.title}
+                className="w-full h-full object-cover"
+                animate={{ scale: isHovered ? 1.1 : 1 }}
+                transition={{ duration: 0.5 }}
+              />
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-900/40"></div>
+              
+              {/* Icon Overlay on Image */}
+              <motion.div
+                className="absolute bottom-3 left-3 w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center text-white shadow-lg"
+                animate={{ 
+                  scale: isHovered ? 1.1 : 1,
+                  rotate: isHovered ? 3 : 0
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <IconComponent className="w-5 h-5" />
+              </motion.div>
+
+              {/* Arrow Indicator */}
+              <div className={`absolute top-3 right-3 transition-all duration-300 ${isHovered ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2'}`}>
+                <div className="w-7 h-7 flex items-center justify-center rounded-full bg-white/90 backdrop-blur-sm">
+                  <ArrowRight className="w-3 h-3 text-teal-600" />
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
-          {/* Content */}
-          <div className="flex-grow mb-4">
-            <h3 className="text-lg sm:text-xl font-bold text-teal-900 mb-3 leading-tight">
-              {service.title}
-            </h3>
-            <p className="text-gray-600 leading-relaxed text-sm line-clamp-3">
-              {service.description}
-            </p>
-          </div>
+          {/* Content Container */}
+          <div className={`flex-grow flex flex-col ${service.image ? 'p-5' : 'p-6'}`}>
+            {/* Header - Only show if no image */}
+            {!service.image && (
+              <div className="flex items-start justify-between mb-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center text-white shadow-lg group-hover:shadow-cyan-500/50 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                  <IconComponent className="w-6 h-6" />
+                </div>
+                <div className={`transition-all duration-300 ${isHovered ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2'}`}>
+                  <div className="w-7 h-7 flex items-center justify-center rounded-full bg-teal-100">
+                    <ArrowRight className="w-3 h-3 text-teal-600" />
+                  </div>
+                </div>
+              </div>
+            )}
 
-          {/* CTA Button */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={(e) => {
-              e.stopPropagation();
-              onLearnMore(service);
-            }}
-            className="w-full py-2.5 px-4 bg-gradient-to-r from-cyan-500 to-teal-600 text-white rounded-full font-medium text-sm shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 transition-all duration-300 relative overflow-hidden group/button"
-          >
-            <span className="relative z-10 flex items-center justify-center space-x-2">
-              <span>Learn More</span>
-              <ArrowRight className="w-3 h-3" />
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-cyan-500 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300" />
-          </motion.button>
+            {/* Content */}
+            <div className="flex-grow mb-4">
+              <h3 className="text-lg sm:text-xl font-bold text-teal-900 mb-3 leading-tight">
+                {service.title}
+              </h3>
+              <p className="text-gray-600 leading-relaxed text-sm line-clamp-3">
+                {service.description}
+              </p>
+            </div>
+
+            {/* CTA Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={(e) => {
+                e.stopPropagation();
+                onLearnMore(service);
+              }}
+              className="w-full py-2.5 px-4 bg-gradient-to-r from-cyan-500 to-teal-600 text-white rounded-full font-medium text-sm shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 transition-all duration-300 relative overflow-hidden group/button"
+            >
+              <span className="relative z-10 flex items-center justify-center space-x-2">
+                <span>Learn More</span>
+                <ArrowRight className="w-3 h-3" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-cyan-500 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300" />
+            </motion.button>
+          </div>
         </motion.div>
       </div>
     </motion.div>
