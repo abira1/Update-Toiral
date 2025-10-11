@@ -4,8 +4,16 @@ import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Heart, Youtube, Face
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
 
-  const scrollToSection = (href) => {
+  const handleNavigation = (href, isRoute = false) => {
+    if (isRoute) {
+      // Handle route navigation
+      navigate(href);
+      return;
+    }
+
+    // Handle scroll to section (for hash-based navigation)
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
