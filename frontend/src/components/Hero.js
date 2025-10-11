@@ -58,9 +58,9 @@ const Hero = ({ data, mousePosition }) => {
           style={{ animation: 'smoothFloat 14s ease-in-out infinite 3s' }} />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-        {/* Main Content */}
-        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
+        {/* Main Content - Centered with proper spacing */}
+        <div className={`transition-all duration-1000 max-w-4xl mx-auto ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-teal-200/50 shadow-lg">
             <Sparkles className="w-5 h-5 text-teal-600" />
             <span className="text-teal-800 font-medium">Crafting Digital Experiences</span>
@@ -116,11 +116,11 @@ const Hero = ({ data, mousePosition }) => {
             </div>
           </div>
 
-          <p className="text-xl text-teal-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-teal-600 mb-12 max-w-3xl mx-auto leading-relaxed px-4">
             {data?.description || "We don't just build websites — we craft digital experiences that truly reflect the soul of a brand."}
           </p>
 
-          <div className="space-y-6">
+          <div className="space-y-6 pb-8">
             <Button
               onClick={scrollToContact}
               className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white px-8 py-4 rounded-2xl text-lg font-medium transform transition-all duration-300 shadow-xl shadow-teal-500/20 hover:shadow-2xl hover:shadow-teal-500/30 hover:scale-105 group"
@@ -134,44 +134,47 @@ const Hero = ({ data, mousePosition }) => {
           </div>
         </div>
 
-        {/* Enhanced 3D Cards Floating Around - Hidden on Mobile */}
-        <div className="absolute inset-0 pointer-events-none hidden lg:block">
+        {/* Enhanced 3D Cards Floating Around - Hidden on Mobile, positioned away from center content */}
+        <div className="absolute inset-0 pointer-events-none hidden lg:block z-0">
+          {/* Left Card - Design - Positioned far left and higher up */}
           <div 
-            className="absolute top-1/4 left-8 w-40 h-32 bg-white/15 backdrop-blur-sm rounded-2xl border border-teal-200/30 shadow-xl overflow-hidden"
+            className="absolute top-[15%] left-4 xl:left-12 w-36 h-28 bg-white/15 backdrop-blur-sm rounded-2xl border border-teal-200/30 shadow-xl overflow-hidden"
             style={{
-              transform: `perspective(1000px) rotateX(${12 + mousePosition.y * 0.1}deg) rotateY(${12 + mousePosition.x * 0.1}deg) translate(${mousePosition.x * 0.08}px, ${mousePosition.y * 0.08}px)`,
+              transform: `perspective(1000px) rotateX(${12 + mousePosition.y * 0.08}deg) rotateY(${12 + mousePosition.x * 0.08}deg) translate(${mousePosition.x * 0.05}px, ${mousePosition.y * 0.05}px)`,
               transition: 'transform 0.4s ease-out'
             }}
           >
-            <div className="p-4 h-full flex flex-col items-center justify-center">
-              <Palette className="w-8 h-8 text-teal-600 mb-2" />
-              <span className="text-teal-700 font-medium text-sm">Design</span>
+            <div className="p-3 h-full flex flex-col items-center justify-center">
+              <Palette className="w-7 h-7 text-teal-600 mb-2" />
+              <span className="text-teal-700 font-medium text-xs">Design</span>
             </div>
           </div>
           
+          {/* Right Card - Develop - Positioned far right and higher up */}
           <div 
-            className="absolute top-1/3 right-8 w-40 h-32 bg-white/15 backdrop-blur-sm rounded-2xl border border-cyan-200/30 shadow-xl overflow-hidden"
+            className="absolute top-[20%] right-4 xl:right-12 w-36 h-28 bg-white/15 backdrop-blur-sm rounded-2xl border border-cyan-200/30 shadow-xl overflow-hidden"
             style={{
-              transform: `perspective(1000px) rotateX(${-12 + mousePosition.y * 0.1}deg) rotateY(${-12 + mousePosition.x * 0.1}deg) translate(${mousePosition.x * -0.08}px, ${mousePosition.y * -0.08}px)`,
+              transform: `perspective(1000px) rotateX(${-12 + mousePosition.y * 0.08}deg) rotateY(${-12 + mousePosition.x * 0.08}deg) translate(${mousePosition.x * -0.05}px, ${mousePosition.y * -0.05}px)`,
               transition: 'transform 0.4s ease-out'
             }}
           >
-            <div className="p-4 h-full flex flex-col items-center justify-center">
-              <Code className="w-8 h-8 text-cyan-600 mb-2" />
-              <span className="text-cyan-700 font-medium text-sm">Develop</span>
+            <div className="p-3 h-full flex flex-col items-center justify-center">
+              <Code className="w-7 h-7 text-cyan-600 mb-2" />
+              <span className="text-cyan-700 font-medium text-xs">Develop</span>
             </div>
           </div>
 
+          {/* Bottom Card - Deploy - Positioned lower and away from center */}
           <div 
-            className="absolute bottom-1/4 left-1/2 transform -translate-x-1/2 w-40 h-32 bg-white/15 backdrop-blur-sm rounded-2xl border border-teal-200/30 shadow-xl overflow-hidden"
+            className="absolute bottom-[8%] left-[15%] w-36 h-28 bg-white/15 backdrop-blur-sm rounded-2xl border border-teal-200/30 shadow-xl overflow-hidden"
             style={{
-              transform: `translate(-50%, 0) perspective(1000px) rotateX(${6 + mousePosition.y * 0.1}deg) rotateY(${6 + mousePosition.x * 0.1}deg) translate(${mousePosition.x * 0.06}px, ${mousePosition.y * 0.06}px)`,
+              transform: `perspective(1000px) rotateX(${6 + mousePosition.y * 0.08}deg) rotateY(${6 + mousePosition.x * 0.08}deg) translate(${mousePosition.x * 0.04}px, ${mousePosition.y * 0.04}px)`,
               transition: 'transform 0.4s ease-out'
             }}
           >
-            <div className="p-4 h-full flex flex-col items-center justify-center">
-              <Rocket className="w-8 h-8 text-teal-600 mb-2" />
-              <span className="text-teal-700 font-medium text-sm">Deploy</span>
+            <div className="p-3 h-full flex flex-col items-center justify-center">
+              <Rocket className="w-7 h-7 text-teal-600 mb-2" />
+              <span className="text-teal-700 font-medium text-xs">Deploy</span>
             </div>
           </div>
         </div>
