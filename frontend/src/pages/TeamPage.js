@@ -5,6 +5,20 @@ import Team from '../components/Team';
 import SEO from '../components/SEO';
 
 const TeamPage = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
     <>
       <SEO 
@@ -13,7 +27,7 @@ const TeamPage = () => {
         keywords="toiral team, web developers bangladesh, design team, development experts, professional web team"
         url="https://toiral.com/team"
       />
-      <Header />
+      <Header mousePosition={mousePosition} />
       <main className="min-h-screen pt-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -25,7 +39,7 @@ const TeamPage = () => {
               Our diverse team brings together creativity, technical expertise, and strategic thinking.
             </p>
           </div>
-          <Team />
+          <Team mousePosition={mousePosition} />
         </div>
       </main>
       <Footer />
