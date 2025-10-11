@@ -41,7 +41,7 @@ const CoursesOverview = () => {
         keywords="web development courses, programming courses bangladesh, online coding bootcamp, react course, nodejs course, ui ux design course"
         url="https://toiral.com/courses"
       />
-      <Header />
+      <Header mousePosition={mousePosition} />
       <main className="min-h-screen pt-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -58,7 +58,7 @@ const CoursesOverview = () => {
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600"></div>
             </div>
           ) : (
-            <Courses courses={courses} />
+            <Courses data={courses} mousePosition={mousePosition} />
           )}
         </div>
       </main>
