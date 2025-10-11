@@ -178,6 +178,17 @@ backend:
           comment: "Error handling working correctly. Returns 404 for non-existent endpoints and 422 for validation errors. Response formats are consistent JSON."
 
 frontend:
+  - task: "Enhanced service card view with images"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/components/Services.js, frontend/src/components/EnhancedServices.js, frontend/src/pages/admin/ComprehensiveDashboard.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Added service image display to card view components. Images are now shown at the top of service cards with proper styling, gradient overlays, and hover effects. Cards adapt responsively - when an image exists, it's displayed prominently; when no image, the original icon-based design is maintained. Also updated admin dashboard service cards to show images."
 
 metadata:
   created_by: "testing_agent"
