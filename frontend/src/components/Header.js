@@ -71,7 +71,7 @@ const Header = ({ mousePosition }) => {
               onClick={() => navigate('/')}
             >
               <img
-                src="https://i.postimg.cc/G2yPfwK1/toiral__2_.png"
+                src="/toiral-logo.png"
                 alt="Toiral - Professional Web Development & Design Agency Logo"
                 className="h-10 w-auto filter drop-shadow-lg"
               />
