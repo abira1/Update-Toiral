@@ -133,7 +133,7 @@ const Header = ({ mousePosition }) => {
               ))}
               <div className="px-6 pt-4">
                 <Button
-                  onClick={() => handleNavigation('#contact')}
+                  onClick={() => handleNavigation('/contact', true)}
                   className="w-full bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white py-3 rounded-2xl shadow-lg shadow-teal-500/20"
                 >
                   Get Started
