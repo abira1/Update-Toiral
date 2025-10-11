@@ -88,104 +88,113 @@ const Projects = ({ data, mousePosition }) => {
         </div>
 
         {featuredProjects && featuredProjects.length > 0 ? (
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
             {featuredProjects.map((project, index) => {
             
             return (
-              <Card
+              <a
                 key={project.id}
-                className={`group bg-white/90 backdrop-blur-sm border-teal-200/50 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{
-                  transitionDelay: `${index * 200}ms`
-                }}
-                onMouseEnter={() => setHoveredProject(project.id)}
-                onMouseLeave={() => setHoveredProject(null)}
-                onClick={() => {
-                  if (project.url && project.url !== '#') {
-                    window.open(project.url, '_blank', 'noopener,noreferrer');
+                href={project.url && project.url !== '#' ? project.url : undefined}
+                target={project.url && project.url !== '#' ? '_blank' : undefined}
+                rel={project.url && project.url !== '#' ? 'noopener noreferrer' : undefined}
+                onClick={(e) => {
+                  if (!project.url || project.url === '#') {
+                    e.preventDefault();
                   }
                 }}
+                className="block no-underline"
               >
-                {/* Optimized Image Container with Lazy Loading */}
-                <div className="relative overflow-hidden h-64 bg-gradient-to-br from-teal-100 to-cyan-100">
-                  <LazyImage
-                    src={project.image}
-                    alt={project.title}
-                    className={`w-full h-full object-cover transition-all duration-300 ${
-                      hoveredProject === project.id ? 'scale-110' : 'scale-100'
-                    }`}
-                    threshold={0.1}
-                    rootMargin="100px"
-                  />
+                <Card
+                  className={`group bg-white/90 backdrop-blur-sm border-teal-200/50 shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer overflow-hidden h-full flex flex-col ${
+                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  }`}
+                  style={{
+                    transitionDelay: `${index * 150}ms`,
+                    minHeight: '420px'
+                  }}
+                  onMouseEnter={() => setHoveredProject(project.id)}
+                  onMouseLeave={() => setHoveredProject(null)}
+                >
+                  {/* Optimized Image Container with Lazy Loading */}
+                  <div className="relative overflow-hidden h-44 bg-gradient-to-br from-teal-100 to-cyan-100 flex-shrink-0">
+                    <LazyImage
+                      src={project.image}
+                      alt={project.title}
+                      className={`w-full h-full object-cover transition-all duration-500 ${
+                        hoveredProject === project.id ? 'scale-110 brightness-75' : 'scale-100 brightness-100'
+                      }`}
+                      threshold={0.1}
+                      rootMargin="100px"
+                    />
 
-                  {/* Simple Overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-t from-black/50 to-transparent transition-opacity duration-300 ${
-                    hoveredProject === project.id ? 'opacity-100' : 'opacity-0'
-                  }`}>
-                    {/* View Project Button */}
-                    <div className="absolute bottom-4 right-4">
-                      <div className="bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 flex items-center space-x-2 shadow-lg">
-                        <ExternalLink className="w-4 h-4 text-teal-600" />
-                        <span className="text-teal-900 text-sm font-medium">View Project</span>
+                    {/* Mouse Glow Effect */}
+                    <div 
+                      className={`absolute inset-0 bg-gradient-to-br from-teal-400/30 via-cyan-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                      style={{
+                        background: `radial-gradient(circle at ${hoveredProject === project.id ? '50%' : '50%'} ${hoveredProject === project.id ? '50%' : '50%'}, rgba(6, 182, 212, 0.3) 0%, transparent 70%)`
+                      }}
+                    />
+
+                    {/* Overlay Icons */}
+                    <div className={`absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500 ${
+                      hoveredProject === project.id ? 'opacity-100' : 'opacity-0'
+                    }`}>
+                      <div className="bg-white/95 backdrop-blur-sm rounded-full p-3 shadow-xl transform transition-all duration-300 group-hover:scale-110">
+                        <ExternalLink className="w-5 h-5 text-teal-600" />
                       </div>
                     </div>
-                  </div>
 
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <Badge className="bg-gradient-to-r from-teal-500 to-cyan-500 text-white border-none shadow-md">
-                      {project.category || 'Web Development'}
-                    </Badge>
-                  </div>
-                </div>
-
-                <CardContent className="p-6 relative">
-                  {/* Enhanced Background Effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-br from-teal-50/50 to-cyan-50/50 transform transition-transform duration-500 ${
-                    hoveredProject === project.id ? 'scale-105 rotate-1' : 'scale-100 rotate-0'
-                  }`}></div>
-
-                  <div className="relative z-10">
-                    <div className="mb-3">
-                      <h3 className="text-2xl font-bold text-teal-900 group-hover:text-teal-800 transition-colors">
-                        {project.title}
-                      </h3>
+                    {/* Category Badge */}
+                    <div className="absolute top-3 left-3">
+                      <Badge className="bg-gradient-to-r from-teal-500 to-cyan-500 text-white border-none shadow-md text-xs">
+                        {project.category || 'Web Development'}
+                      </Badge>
                     </div>
-                    
-                    <p className="text-teal-700 leading-relaxed mb-6">
-                      {project.description}
-                    </p>
-
-                    {/* Technologies */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {(project.technologies || ['React', 'JavaScript', 'CSS']).map((tech, techIndex) => (
-                        <Badge
-                          key={techIndex}
-                          variant="outline"
-                          className="border-teal-300 text-teal-700 hover:bg-teal-100 transition-colors"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-
-                    <Button
-                      className="w-full bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white rounded-xl transition-colors duration-300"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        if (project.url && project.url !== '#') {
-                          window.open(project.url, '_blank', 'noopener,noreferrer');
-                        }
-                      }}
-                    >
-                      View Project
-                      <ExternalLink className="ml-2 w-4 h-4" />
-                    </Button>
                   </div>
-                </CardContent>
-              </Card>
+
+                  <CardContent className="p-5 relative flex-grow flex flex-col">
+                    {/* Interactive Background Effect */}
+                    <div 
+                      className={`absolute inset-0 bg-gradient-to-br from-teal-50/0 to-cyan-50/0 group-hover:from-teal-50/50 group-hover:to-cyan-50/50 transition-all duration-500 pointer-events-none`}
+                    />
+
+                    <div className="relative z-10 flex-grow flex flex-col">
+                      <div className="mb-2 flex-shrink-0">
+                        <h3 className="text-lg font-bold text-teal-900 group-hover:text-teal-700 transition-colors duration-300 line-clamp-2">
+                          {project.title}
+                        </h3>
+                      </div>
+                      
+                      <p className="text-teal-700 leading-relaxed mb-4 text-sm line-clamp-3 flex-grow">
+                        {project.description}
+                      </p>
+
+                      {/* Technologies */}
+                      <div className="flex flex-wrap gap-1.5 mb-4 flex-shrink-0">
+                        {(project.technologies || ['React', 'JavaScript', 'CSS']).slice(0, 3).map((tech, techIndex) => (
+                          <Badge
+                            key={techIndex}
+                            variant="outline"
+                            className="border-teal-300 text-teal-700 hover:bg-teal-100 transition-colors text-xs px-2 py-0.5"
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                        {(project.technologies || []).length > 3 && (
+                          <Badge variant="outline" className="border-teal-300 text-teal-700 text-xs px-2 py-0.5">
+                            +{project.technologies.length - 3}
+                          </Badge>
+                        )}
+                      </div>
+
+                      <div className="mt-auto flex items-center justify-between text-teal-600 text-sm flex-shrink-0">
+                        <span className="group-hover:text-teal-700 transition-colors font-medium">View Project</span>
+                        <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
             );
             })}
           </div>
