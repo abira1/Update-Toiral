@@ -32,12 +32,12 @@ const Header = ({ mousePosition }) => {
     setIsMobileMenuOpen(false);
 
     if (isRoute) {
-      // Handle route navigation (like /portfolio)
+      // Handle route navigation
       navigate(href);
       return;
     }
 
-    // Check if we're on the home page
+    // Handle hash-based navigation (for sections still on home page)
     const isHomePage = location.pathname === '/';
 
     if (isHomePage) {
@@ -48,7 +48,6 @@ const Header = ({ mousePosition }) => {
       }
     } else {
       // On other pages: navigate to home page with hash
-      // Use state to pass the section to scroll to after navigation
       navigate('/', { state: { scrollTo: href } });
     }
   };
