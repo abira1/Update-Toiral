@@ -21,6 +21,8 @@ import LazyImage from './ui/LazyImage';
 const Team = ({ data, mousePosition }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredMember, setHoveredMember] = useState(null);
+  const [selectedMember, setSelectedMember] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -39,6 +41,16 @@ const Team = ({ data, mousePosition }) => {
 
     return () => observer.disconnect();
   }, []);
+
+  const handleCardClick = (member) => {
+    setSelectedMember(member);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedMember(null), 300);
+  };
 
   return (
     <section id="team" ref={sectionRef} className="py-24 relative overflow-hidden">
