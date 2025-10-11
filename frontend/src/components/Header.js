@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
+import { LogoImage } from './ui/LazyImage';
 
 const Header = ({ mousePosition }) => {
   const location = useLocation();
