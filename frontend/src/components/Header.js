@@ -19,13 +19,13 @@ const Header = ({ mousePosition }) => {
   }, []);
 
   const navLinks = [
-    { href: '#about', label: 'About' },
-    { href: '#services', label: 'Services' },
-    { href: '#courses', label: 'Courses' },
-    { href: '#projects', label: 'Projects' },
+    { href: '/about', label: 'About', isRoute: true },
+    { href: '/services', label: 'Services', isRoute: true },
+    { href: '/courses', label: 'Courses', isRoute: true },
+    { href: '#projects', label: 'Projects' }, // Keep on home page for now
     { href: '/portfolio', label: 'Portfolio', isRoute: true },
-    { href: '#team', label: 'Team' },
-    { href: '#contact', label: 'Contact' }
+    { href: '/team', label: 'Team', isRoute: true },
+    { href: '/contact', label: 'Contact', isRoute: true }
   ];
 
   const handleNavigation = (href, isRoute = false) => {
