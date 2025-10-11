@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Code, Search, Settings, Layers, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import LazyImage from './ui/LazyImage';
+import { getServiceSlug } from '../utils/slugify';
 
 const iconMap = {
   Code,
