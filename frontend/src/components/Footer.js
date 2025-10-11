@@ -117,7 +117,7 @@ const Footer = () => {
                 {quickLinks.map((link, index) => (
                   <li key={index}>
                     <button
-                      onClick={() => scrollToSection(link.href)}
+                      onClick={() => handleNavigation(link.href, link.isRoute)}
                       className="text-teal-200 hover:text-white transition-all duration-300 flex items-center group transform hover:translate-x-2"
                       style={{ transitionDelay: `${index * 50}ms` }}
                     >
