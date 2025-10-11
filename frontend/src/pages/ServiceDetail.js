@@ -382,7 +382,7 @@ const ServiceDetail = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-teal-50 to-cyan-50 relative overflow-hidden">
       {/* Global 3D Mouse Interactive Elements */}
-      <div className="fixed inset-0 pointer-events-none z-10">
+      <div className="fixed inset-0 pointer-events-none z-0">
         {[...Array(8)].map((_, i) => (
           <div
             key={i}
