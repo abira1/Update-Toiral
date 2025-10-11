@@ -106,10 +106,10 @@ const Courses = ({ data, mousePosition }) => {
             >
               {/* Course Image - Responsive Height */}
               <div className="relative h-40 sm:h-44 md:h-48 lg:h-52 overflow-hidden">
-                <img 
+                <LazyImage 
                   src={course.image} 
                   alt={course.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t from-teal-900/60 to-transparent transition-opacity duration-300 ${
                   hoveredCourse === course.id ? 'opacity-100' : 'opacity-0'
