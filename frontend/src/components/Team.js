@@ -127,7 +127,7 @@ const Team = ({ data, mousePosition }) => {
                   <div className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${
                     hoveredMember === member.id ? 'opacity-100' : 'opacity-0'
                   }`}>
-                    <div className="flex flex-wrap justify-center gap-2 max-w-xs">
+                    <div className="flex flex-wrap justify-center gap-1 sm:gap-2 max-w-[90%] sm:max-w-xs px-1 sm:px-0">
                       {/* LinkedIn */}
                       {member.linkedin && (
                         <div
