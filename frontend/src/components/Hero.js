@@ -163,20 +163,6 @@ const Hero = ({ data, mousePosition }) => {
               <span className="text-cyan-700 font-medium text-xs">Develop</span>
             </div>
           </div>
-
-          {/* Bottom Card - Deploy - Positioned at bottom right away from center */}
-          <div 
-            className="absolute bottom-[10%] right-[15%] xl:right-[18%] w-36 h-28 bg-white/15 backdrop-blur-sm rounded-2xl border border-teal-200/30 shadow-xl overflow-hidden"
-            style={{
-              transform: `perspective(1000px) rotateX(${6 + mousePosition.y * 0.08}deg) rotateY(${-6 + mousePosition.x * 0.08}deg) translate(${mousePosition.x * -0.04}px, ${mousePosition.y * -0.04}px)`,
-              transition: 'transform 0.4s ease-out'
-            }}
-          >
-            <div className="p-3 h-full flex flex-col items-center justify-center">
-              <Rocket className="w-7 h-7 text-teal-600 mb-2" />
-              <span className="text-teal-700 font-medium text-xs">Deploy</span>
-            </div>
-          </div>
         </div>
       </div>
 
