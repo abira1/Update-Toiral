@@ -366,19 +366,19 @@ const Team = ({ data, mousePosition }) => {
                   }`}></div>
                 </div>
 
-                <CardContent className="p-6 relative">
+                <CardContent className="p-2 sm:p-4 md:p-6 relative">
                   {/* Enhanced Background Effect */}
                   <div className={`absolute inset-0 bg-gradient-to-br from-teal-50/50 to-cyan-50/50 transform transition-transform duration-500 ${
                     hoveredMember === member.id ? 'scale-105 rotate-1' : 'scale-100 rotate-0'
                   }`}></div>
 
                   <div className="relative z-10 text-center">
-                    <h3 className="text-2xl font-bold text-teal-900 mb-2">
+                    <h3 className="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold text-teal-900 mb-1 sm:mb-2 line-clamp-2">
                       {member.name}
                     </h3>
                     
                     <div 
-                      className="inline-block bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-4 py-1 rounded-full text-sm font-medium mb-4 transform hover:scale-105 transition-transform"
+                      className="inline-block bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-2 sm:px-3 md:px-4 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-medium mb-2 sm:mb-3 md:mb-4 transform hover:scale-105 transition-transform"
                       style={{
                         transform: `perspective(1000px) rotateY(${mousePosition.x * 0.05}deg) scale(1.05)`
                       }}
@@ -386,7 +386,7 @@ const Team = ({ data, mousePosition }) => {
                       {member.role}
                     </div>
                     
-                    <p className="text-teal-700 leading-relaxed">
+                    <p className="text-xs sm:text-sm md:text-base text-teal-700 leading-relaxed line-clamp-2 sm:line-clamp-3 md:line-clamp-none">
                       {member.description}
                     </p>
                   </div>
