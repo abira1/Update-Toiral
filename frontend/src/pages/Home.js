@@ -185,7 +185,7 @@ const Home = () => {
       <Header mousePosition={mousePosition} />
       <Hero data={data.hero} mousePosition={mousePosition} />
       <About data={data.about} mousePosition={mousePosition} />
-      <Services data={data.services} mousePosition={mousePosition} />
+      <EnhancedServices data={data.services} mousePosition={mousePosition} />
       <Courses data={data.courses} mousePosition={mousePosition} />
       <Projects data={data.projects} mousePosition={mousePosition} />
       <Team data={data.team} mousePosition={mousePosition} />
