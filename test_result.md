@@ -190,6 +190,18 @@ frontend:
           agent: "main"
           comment: "Added service image display to card view components. Images are now shown at the top of service cards with proper styling, gradient overlays, and hover effects. Cards adapt responsively - when an image exists, it's displayed prominently; when no image, the original icon-based design is maintained. Also updated admin dashboard service cards to show images."
 
+  - task: "Responsive team member cards for mobile"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/components/Team.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Enhanced team member cards to be fully responsive. Now displays 3 cards per row on all screen sizes including mobile. Updated: grid layout (grid-cols-3 for all breakpoints), avatar heights (h-32 on mobile to h-80 on lg), social icon sizes (w-7 on mobile to w-10 on md+), text sizes (text-sm on mobile to text-2xl on lg), padding (p-2 on mobile to p-6 on md+), and gap spacing (gap-2 on mobile to gap-8 on lg). All hover effects and animations preserved."
+
 metadata:
   created_by: "testing_agent"
   version: "1.0"
