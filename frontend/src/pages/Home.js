@@ -148,7 +148,7 @@ const Home = () => {
         url="https://toiral.com/"
       />
       {/* Global 3D Mouse Interactive Elements */}
-      <div className="fixed inset-0 pointer-events-none z-10">
+      <div className="fixed inset-0 pointer-events-none z-0">
         {/* Floating 3D Orbs */}
         {[...Array(8)].map((_, i) => (
           <div
