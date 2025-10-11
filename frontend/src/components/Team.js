@@ -392,10 +392,10 @@ const Team = ({ data, mousePosition }) => {
                   </div>
 
                   {/* Enhanced Decorative Elements */}
-                  <div className={`absolute top-2 right-2 w-3 h-3 bg-gradient-to-br from-cyan-300/50 to-teal-300/50 rounded-full transform transition-all duration-500 ${
+                  <div className={`absolute top-1 sm:top-2 right-1 sm:right-2 w-2 sm:w-3 h-2 sm:h-3 bg-gradient-to-br from-cyan-300/50 to-teal-300/50 rounded-full transform transition-all duration-500 ${
                     hoveredMember === member.id ? 'scale-150 -translate-y-1 translate-x-1' : 'scale-100'
                   }`}></div>
-                  <div className={`absolute bottom-2 left-2 w-2 h-2 bg-gradient-to-br from-teal-300/50 to-cyan-300/50 rounded-full transform transition-all duration-500 ${
+                  <div className={`absolute bottom-1 sm:bottom-2 left-1 sm:left-2 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-gradient-to-br from-teal-300/50 to-cyan-300/50 rounded-full transform transition-all duration-500 ${
                     hoveredMember === member.id ? 'scale-125 translate-y-1 -translate-x-1' : 'scale-100'
                   }`}></div>
                 </CardContent>
