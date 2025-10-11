@@ -112,7 +112,7 @@ const NotFound = ({ isUnauthorized = false }) => {
         <div className="absolute w-full h-1 bg-gradient-to-r from-transparent via-[#0f7578]/30 to-transparent animate-scan"></div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes scan {
           0% {
             top: -10%;
