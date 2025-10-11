@@ -190,9 +190,49 @@ const Hero = ({ data, mousePosition }) => {
       </div>
 
       <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(180deg); }
+        @keyframes smoothFloat {
+          0%, 100% { 
+            transform: translate(0, 0) scale(1); 
+            opacity: 0.3;
+          }
+          25% { 
+            transform: translate(20px, -30px) scale(1.1); 
+            opacity: 0.5;
+          }
+          50% { 
+            transform: translate(-15px, -50px) scale(1.05); 
+            opacity: 0.4;
+          }
+          75% { 
+            transform: translate(25px, -30px) scale(1.15); 
+            opacity: 0.6;
+          }
+        }
+
+        @keyframes rotateSmooth {
+          0% { 
+            transform: rotate(0deg) scale(1); 
+            opacity: 0.3;
+          }
+          50% { 
+            transform: rotate(180deg) scale(1.2); 
+            opacity: 0.5;
+          }
+          100% { 
+            transform: rotate(360deg) scale(1); 
+            opacity: 0.3;
+          }
+        }
+
+        @keyframes scaleSmooth {
+          0%, 100% { 
+            transform: scale(1); 
+            opacity: 0.3;
+          }
+          50% { 
+            transform: scale(1.3); 
+            opacity: 0.6;
+          }
         }
       `}</style>
     </section>
