@@ -80,11 +80,11 @@ const Services = ({ data, mousePosition }) => {
   }, []);
 
   const handleLearnMore = (service) => {
-    // Generate slug from service title or use service ID
-    const slug = service.title ? generateSlug(service.title) : `service-${service.id}`;
+    // Use SEO-friendly slug for services
+    const slug = getServiceSlug(service);
     console.log('Navigating to service:', service);
     console.log('Generated slug:', slug);
-    navigate(`/service/${slug}`, { state: { serviceData: service } });
+    navigate(`/services/${slug}`, { state: { serviceData: service } });
   };
 
   return (
