@@ -135,8 +135,8 @@ const Hero = ({ data, mousePosition }) => {
           </div>
         </div>
 
-        {/* Enhanced 3D Cards Floating Around */}
-        <div className="absolute inset-0 pointer-events-none">
+        {/* Enhanced 3D Cards Floating Around - Hidden on Mobile */}
+        <div className="absolute inset-0 pointer-events-none hidden lg:block">
           <div 
             className="absolute top-1/4 left-8 w-40 h-32 bg-white/15 backdrop-blur-sm rounded-2xl border border-teal-200/30 shadow-xl overflow-hidden"
             style={{
