@@ -249,11 +249,11 @@ const ServiceCard = memo(({ service, index, onLearnMore }) => {
               e.stopPropagation();
               onLearnMore(service);
             }}
-            className="w-full py-3 px-6 bg-gradient-to-r from-cyan-500 to-teal-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 transition-all duration-300 relative overflow-hidden group/button"
+            className="w-full py-2.5 px-4 bg-gradient-to-r from-cyan-500 to-teal-600 text-white rounded-full font-medium text-sm shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 transition-all duration-300 relative overflow-hidden group/button"
           >
             <span className="relative z-10 flex items-center justify-center space-x-2">
               <span>Learn More</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3 h-3" />
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-cyan-500 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300" />
           </motion.button>
