@@ -358,10 +358,10 @@ const Team = ({ data, mousePosition }) => {
                   </div>
 
                   {/* Enhanced 3D Floating Elements */}
-                  <div className={`absolute top-4 right-4 w-6 h-6 bg-gradient-to-br from-cyan-300/60 to-teal-300/60 rounded-full transform transition-all duration-500 ${
+                  <div className={`absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4 w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 bg-gradient-to-br from-cyan-300/60 to-teal-300/60 rounded-full transform transition-all duration-500 ${
                     hoveredMember === member.id ? 'scale-150 -translate-y-2 translate-x-2' : 'scale-100'
                   }`}></div>
-                  <div className={`absolute bottom-4 left-4 w-4 h-4 bg-gradient-to-br from-teal-300/60 to-cyan-300/60 rounded-full transform transition-all duration-500 ${
+                  <div className={`absolute bottom-2 sm:bottom-3 md:bottom-4 left-2 sm:left-3 md:left-4 w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 bg-gradient-to-br from-teal-300/60 to-cyan-300/60 rounded-full transform transition-all duration-500 ${
                     hoveredMember === member.id ? 'scale-125 translate-y-2 -translate-x-2' : 'scale-100'
                   }`}></div>
                 </div>
