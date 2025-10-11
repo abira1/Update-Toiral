@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage with Logo and Hero Images -->
+  <url>
+    <loc>https://toiral-development.web.app/</loc>
+    <image:image>
+      <image:loc>https://toiral-development.web.app/toiral-logo.png</image:loc>
+      <image:title>Toiral - Professional Web Development Agency Logo</image:title>
+      <image:caption>Toiral professional web development and design agency logo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://i.postimg.cc/G2yPfwK1/toiral__2_.png</image:loc>
+      <image:title>Toiral Company Logo</image:title>
+      <image:caption>Official Toiral web development company logo</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Page Images -->
+  <url>
+    <loc>https://toiral-development.web.app/about</loc>
+    <image:image>
+      <image:loc>https://toiral-development.web.app/toiral-logo.png</image:loc>
+      <image:title>Toiral Team Logo</image:title>
+      <image:caption>About Toiral web development team</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Services Page Images -->
+  <url>
+    <loc>https://toiral-development.web.app/services</loc>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1460925895917-afdab827c52f</image:loc>
+      <image:title>Web Development Services</image:title>
+      <image:caption>Professional web development and design services</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1553877522-43269d4ea984</image:loc>
+      <image:title>SEO Services Bangladesh</image:title>
+      <image:caption>Search engine optimization services in Bangladesh</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Team Page Images -->
+  <url>
+    <loc>https://toiral-development.web.app/team</loc>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1556157382-97eda2d62296</image:loc>
+      <image:title>Toiral Development Team</image:title>
+      <image:caption>Professional web development team at Toiral</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Portfolio Page Images -->
+  <url>
+    <loc>https://toiral-development.web.app/portfolio</loc>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1467232004584-a241de8bcf5d</image:loc>
+      <image:title>Web Development Portfolio</image:title>
+      <image:caption>Portfolio of web development projects by Toiral</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1581291518857-4e27b48ff24e</image:loc>
+      <image:title>E-commerce Projects</image:title>
+      <image:caption>E-commerce website development projects</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Service Detail Pages with Images -->
+  <url>
+    <loc>https://toiral-development.web.app/services/web-design-development</loc>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1460925895917-afdab827c52f</image:loc>
+      <image:title>Custom Web Design and Development</image:title>
+      <image:caption>Professional custom web design and development services</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://toiral-development.web.app/services/seo-optimization-services</loc>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1553877522-43269d4ea984</image:loc>
+      <image:title>SEO Optimization Services</image:title>
+      <image:caption>Search engine optimization and digital marketing services</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://toiral-development.web.app/services/full-stack-development</loc>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1517180102446-f3ece451e9d8</image:loc>
+      <image:title>Full Stack Development</image:title>
+      <image:caption>Complete full-stack web development solutions</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
