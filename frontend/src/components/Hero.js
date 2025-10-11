@@ -164,11 +164,11 @@ const Hero = ({ data, mousePosition }) => {
             </div>
           </div>
 
-          {/* Bottom Card - Deploy - Positioned lower and away from center */}
+          {/* Bottom Card - Deploy - Positioned at bottom right away from center */}
           <div 
-            className="absolute bottom-[8%] left-[15%] w-36 h-28 bg-white/15 backdrop-blur-sm rounded-2xl border border-teal-200/30 shadow-xl overflow-hidden"
+            className="absolute bottom-[10%] right-[15%] xl:right-[18%] w-36 h-28 bg-white/15 backdrop-blur-sm rounded-2xl border border-teal-200/30 shadow-xl overflow-hidden"
             style={{
-              transform: `perspective(1000px) rotateX(${6 + mousePosition.y * 0.08}deg) rotateY(${6 + mousePosition.x * 0.08}deg) translate(${mousePosition.x * 0.04}px, ${mousePosition.y * 0.04}px)`,
+              transform: `perspective(1000px) rotateX(${6 + mousePosition.y * 0.08}deg) rotateY(${-6 + mousePosition.x * 0.08}deg) translate(${mousePosition.x * -0.04}px, ${mousePosition.y * -0.04}px)`,
               transition: 'transform 0.4s ease-out'
             }}
           >
