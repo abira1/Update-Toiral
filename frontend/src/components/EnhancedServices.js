@@ -205,7 +205,7 @@ const ServiceCard = memo(({ service, index, onLearnMore }) => {
     >
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-teal-500/20 to-blue-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
-      <div className="relative bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden" style={{height: '280px'}}>
+      <div className="relative bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden" style={{height: '310px'}}>
         <div
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
           style={{
