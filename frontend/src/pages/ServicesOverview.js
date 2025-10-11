@@ -8,6 +8,7 @@ import { subscribeToWebsiteData } from '../services/dataService';
 const ServicesOverview = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const unsubscribe = subscribeToWebsiteData((data) => {
@@ -18,6 +19,18 @@ const ServicesOverview = () => {
     });
 
     return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   return (
