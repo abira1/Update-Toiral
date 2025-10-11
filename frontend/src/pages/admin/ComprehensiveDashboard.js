@@ -897,7 +897,18 @@ const ComprehensiveDashboard = () => {
             {/* Services Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filterData(websiteData.services || [], searchTerm).map((service) => (
-                <Card key={service.id} className="group hover:shadow-lg transition-shadow">
+                <Card key={service.id} className="group hover:shadow-lg transition-shadow overflow-hidden">
+                  {/* Service Image */}
+                  {service.image && (
+                    <div className="relative h-40 overflow-hidden bg-gray-100">
+                      <img 
+                        src={service.image} 
+                        alt={service.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20"></div>
+                    </div>
+                  )}
                   <CardHeader className="pb-3">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
