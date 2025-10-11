@@ -163,7 +163,7 @@ backend:
     status_history:
         - working: true
           agent: "testing"
-          comment: "Server running correctly on port 8001 and accessible via configured backend URL (https://service-card-upgrade.preview.emergentagent.com/api/). All endpoints responding properly."
+          comment: "Server running correctly on port 8001 and accessible via configured backend URL (https://fixed-orbs.preview.emergentagent.com/api/). All endpoints responding properly."
 
   - task: "Error handling and response formats"
     implemented: true
