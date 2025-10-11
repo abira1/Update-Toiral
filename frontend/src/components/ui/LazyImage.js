@@ -1,21 +1,35 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { cn } from "../../lib/utils";
 
+// Generate a tiny blurred placeholder from image URL
+const generateBlurPlaceholder = (src) => {
+  // For Unsplash images, use their blur parameter
+  if (src?.includes('unsplash.com')) {
+    return `${src}&blur=50&w=50&q=10`;
+  }
+  // For other images, use a gradient placeholder
+  return "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2314b8a6'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23g)' opacity='0.1'/%3E%3C/svg%3E";
+};
+
 const LazyImage = ({
   src,
   alt,
   className = "",
-  placeholder = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5YTNhZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkxvYWRpbmcuLi48L3RleHQ+PC9zdmc+",
-  errorPlaceholder = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzk5YTNhZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkZhaWxlZCB0byBsb2FkPC90ZXh0Pjwvc3ZnPg==",
+  placeholder,
+  errorPlaceholder = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial, sans-serif' font-size='14' fill='%2399a3af' text-anchor='middle' dy='.3em'%3EFailed to load%3C/text%3E%3C/svg%3E",
   threshold = 0.1,
-  rootMargin = "50px",
-  fadeInDuration = 300,
+  rootMargin = "100px",
+  fadeInDuration = 600,
+  useBlur = true,
   ...props
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef(null);
+  
+  // Generate blur placeholder if not provided
+  const blurPlaceholder = placeholder || (useBlur ? generateBlurPlaceholder(src) : null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -49,45 +63,64 @@ const LazyImage = ({
   };
 
   return (
-    <div ref={imgRef} className={cn("relative overflow-hidden", className)}>
-      {/* Placeholder/Loading state */}
-      {!isLoaded && (
+    <div ref={imgRef} className={cn("relative overflow-hidden bg-gradient-to-br from-teal-50 to-cyan-50", className)}>
+      {/* Blur Placeholder - Always visible until main image loads */}
+      {blurPlaceholder && !isLoaded && (
         <img
-          src={placeholder}
+          src={blurPlaceholder}
           alt=""
           className={cn(
-            "absolute inset-0 w-full h-full object-cover transition-opacity duration-300",
-            isLoaded ? "opacity-0" : "opacity-100"
+            "absolute inset-0 w-full h-full object-cover transition-all duration-700",
+            isLoaded ? "opacity-0 scale-110 blur-xl" : "opacity-100 scale-100 blur-md"
           )}
           aria-hidden="true"
+          loading="eager"
         />
       )}
       
-      {/* Actual image */}
+      {/* Actual image with fade-in effect */}
       {isInView && (
         <img
           src={hasError ? errorPlaceholder : src}
           alt={alt}
           className={cn(
-            "w-full h-full object-cover transition-opacity duration-300",
-            isLoaded ? "opacity-100" : "opacity-0"
+            "w-full h-full object-cover transition-all duration-700",
+            isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-95"
           )}
           onLoad={handleLoad}
           onError={handleError}
           loading="lazy"
           style={{
-            transitionDuration: `${fadeInDuration}ms`
+            transitionDuration: `${fadeInDuration}ms`,
+            transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
           }}
           {...props}
         />
       )}
       
-      {/* Loading overlay */}
+      {/* Loading shimmer effect */}
       {!isLoaded && isInView && (
-        <div className="absolute inset-0 bg-gradient-to-br from-teal-100 to-cyan-100 animate-pulse flex items-center justify-center">
-          <div className="w-8 h-8 border-2 border-teal-600 border-t-transparent rounded-full animate-spin" />
+        <div className="absolute inset-0 overflow-hidden">
+          <div 
+            className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent"
+            style={{
+              animation: 'shimmer 2s infinite'
+            }}
+          />
         </div>
       )}
+      
+      {/* CSS for shimmer animation */}
+      <style jsx>{`
+        @keyframes shimmer {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+      `}</style>
     </div>
   );
 };
