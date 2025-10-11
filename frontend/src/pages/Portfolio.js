@@ -337,10 +337,10 @@ const Portfolio = () => {
                   <div className={`relative overflow-hidden bg-gradient-to-br from-teal-100 to-cyan-100 flex-shrink-0 ${
                     viewMode === 'list' ? 'md:w-72 h-48 md:h-auto' : 'h-44'
                   }`}>
-                    <img
+                    <LazyImage
                       src={project.image}
                       alt={project.title}
-                      className={`w-full h-full object-cover transition-all duration-500 ${
+                      className={`w-full h-full transition-all duration-500 ${
                         hoveredProject === project.id ? 'scale-110 brightness-75' : 'scale-100 brightness-100'
                       }`}
                     />
