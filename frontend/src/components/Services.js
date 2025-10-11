@@ -86,7 +86,7 @@ const Services = ({ data, mousePosition }) => {
   };
 
   return (
-    <section id="services" ref={sectionRef} className="py-24 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 relative overflow-hidden">
+    <section id="services" ref={sectionRef} className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 relative overflow-hidden">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(3)].map((_, i) => (
@@ -102,149 +102,151 @@ const Services = ({ data, mousePosition }) => {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className={`text-center mb-16 transition-all duration-1000 ${
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className={`text-center mb-12 lg:mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <h2 className="text-5xl md:text-6xl font-bold text-teal-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-teal-900 mb-4 lg:mb-6">
             Our Services
           </h2>
-          <p className="text-xl text-teal-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-teal-700 max-w-3xl mx-auto leading-relaxed px-4">
             From concept to deployment, we provide comprehensive digital solutions tailored to your unique story.
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full mx-auto mt-6"></div>
+          <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full mx-auto mt-4 lg:mt-6"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+        {/* Services Grid - Enhanced Responsive Design */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
           {servicesData.map((service, index) => {
             const IconComponent = iconMap[service.icon] || Code;
             console.log('Service:', service, 'Icon:', service.icon, 'IconComponent:', IconComponent);
             return (
               <div
                 key={service.id}
-                className={`group relative overflow-hidden cursor-pointer transition-all duration-300 transform hover:-translate-y-2 hover:scale-102 ${
+                className={`group relative overflow-hidden cursor-pointer transition-all duration-300 transform hover:-translate-y-2 hover:scale-[1.02] ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
+                } w-full max-w-lg mx-auto lg:max-w-none`}
                 style={{
                   transitionDelay: `${index * 200}ms`,
-                  background: 'linear-gradient(145deg, #f8f9fa, #e9ecef)',
-                  boxShadow: hoveredCard === service.id
-                    ? '12px 12px 24px #d1d5db, -12px -12px 24px #ffffff'
-                    : '8px 8px 16px #d1d5db, -8px -8px 16px #ffffff',
-                  borderRadius: '16px',
-                  padding: '2.5rem',
-                  maxWidth: '400px',
-                  margin: '0 auto'
                 }}
                 onMouseEnter={() => setHoveredCard(service.id)}
                 onMouseLeave={() => setHoveredCard(null)}
                 onClick={() => handleLearnMore(service)}
               >
-                {/* Subtle Background Effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br from-teal-400/5 to-cyan-500/5 transition-opacity duration-300 ${
-                  hoveredCard === service.id ? 'opacity-100' : 'opacity-50'
-                }`} style={{ borderRadius: '16px' }}></div>
-
-                {/* Simple Icon */}
-                <div className="flex items-start justify-between mb-6">
-                  <div
-                    className={`w-14 h-14 flex items-center justify-center shadow-md transform transition-all duration-300 ${
-                      hoveredCard === service.id ? 'scale-105' : 'scale-100'
-                    }`}
-                    style={{
-                      background: 'linear-gradient(145deg, #14b8a6, #0891b2)',
-                      boxShadow: hoveredCard === service.id
-                        ? '6px 6px 12px #0891b2, -6px -6px 12px #14b8a6'
-                        : '4px 4px 8px #0891b2, -4px -4px 8px #14b8a6',
-                      borderRadius: '12px'
-                    }}
-                  >
-                    <IconComponent className="w-7 h-7 text-white" />
-                  </div>
-                  <div className={`transition-opacity duration-300 ${
-                    hoveredCard === service.id ? 'opacity-100' : 'opacity-0'
-                  }`}>
-                    <ArrowRight className="w-5 h-5 text-teal-600" />
-                  </div>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-bold text-teal-900 mb-3 relative z-10">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-teal-700 text-base leading-relaxed mb-5 relative z-10">
-                  {service.description}
-                </p>
-
-                {/* Key Features */}
-                <div className="space-y-2 mb-6 relative z-10">
-                  <h4 className="font-semibold text-teal-800 text-sm">Key Features:</h4>
-                  <ul className="space-y-1.5">
-                    {service.features.map((feature, featureIndex) => (
-                      <li
-                        key={featureIndex}
-                        className="flex items-center space-x-2.5 transition-transform duration-200 hover:translate-x-1"
-                      >
-                        <div className="w-1.5 h-1.5 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex-shrink-0"></div>
-                        <span className="text-teal-700 text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Simple Learn More Button */}
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleLearnMore(service);
-                  }}
-                  className="w-full text-white rounded-lg transform hover:scale-102 transition-all duration-200 shadow-sm hover:shadow-md font-medium py-2.5 px-5 flex items-center justify-center space-x-2 relative z-10"
+                {/* Enhanced Card Container */}
+                <div 
+                  className="relative h-full rounded-2xl p-6 sm:p-8 lg:p-10 border border-gray-200/50"
                   style={{
-                    background: 'linear-gradient(145deg, #14b8a6, #0891b2)',
-                    boxShadow: '4px 4px 8px #0891b2, -4px -4px 8px #14b8a6'
+                    background: 'linear-gradient(145deg, #ffffff, #f8fafc)',
+                    boxShadow: hoveredCard === service.id
+                      ? '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04)'
+                      : '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05)',
                   }}
                 >
-                  <span className="text-sm">Learn More</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                  {/* Gradient Background Effect */}
+                  <div className={`absolute inset-0 bg-gradient-to-br from-teal-50/50 to-cyan-50/50 transition-opacity duration-300 rounded-2xl ${
+                    hoveredCard === service.id ? 'opacity-100' : 'opacity-30'
+                  }`}></div>
 
-                {/* Subtle Decorative Elements */}
-                <div className={`absolute top-3 right-3 w-4 h-4 bg-gradient-to-br from-cyan-300/20 to-teal-300/20 rounded-full transition-opacity duration-300 ${
-                  hoveredCard === service.id ? 'opacity-100' : 'opacity-50'
-                }`}></div>
-                <div className={`absolute bottom-3 left-3 w-3 h-3 bg-gradient-to-br from-teal-300/20 to-cyan-300/20 rounded-full transition-opacity duration-300 ${
-                  hoveredCard === service.id ? 'opacity-100' : 'opacity-50'
-                }`}></div>
+                  {/* Content Container */}
+                  <div className="relative z-10 h-full flex flex-col">
+                    {/* Header Section */}
+                    <div className="flex items-start justify-between mb-6">
+                      {/* Icon Container */}
+                      <div
+                        className={`w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 flex items-center justify-center rounded-xl sm:rounded-2xl shadow-lg transform transition-all duration-300 ${
+                          hoveredCard === service.id ? 'scale-105 rotate-3' : 'scale-100'
+                        }`}
+                        style={{
+                          background: 'linear-gradient(135deg, #14b8a6, #0891b2)',
+                          boxShadow: hoveredCard === service.id
+                            ? '0 10px 15px -3px rgba(20, 184, 166, 0.4)'
+                            : '0 4px 6px -1px rgba(20, 184, 166, 0.2)',
+                        }}
+                      >
+                        <IconComponent className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 text-white" />
+                      </div>
+
+                      {/* Arrow Indicator */}
+                      <div className={`transition-all duration-300 ${
+                        hoveredCard === service.id ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2'
+                      }`}>
+                        <div className="w-8 h-8 flex items-center justify-center rounded-full bg-teal-100">
+                          <ArrowRight className="w-4 h-4 text-teal-600" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Title & Description */}
+                    <div className="flex-grow mb-6">
+                      <h3 className="text-xl sm:text-2xl lg:text-2xl font-bold text-gray-900 mb-3 lg:mb-4 leading-tight">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                        {service.description}
+                      </p>
+                    </div>
+
+                    {/* Key Features */}
+                    <div className="mb-6 lg:mb-8">
+                      <h4 className="font-semibold text-gray-800 text-sm mb-3">Key Features:</h4>
+                      <ul className="space-y-2">
+                        {service.features.map((feature, featureIndex) => (
+                          <li
+                            key={featureIndex}
+                            className="flex items-center space-x-3 transition-transform duration-200 hover:translate-x-1"
+                          >
+                            <div className="w-2 h-2 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex-shrink-0"></div>
+                            <span className="text-gray-600 text-sm">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* CTA Button */}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleLearnMore(service);
+                      }}
+                      className={`w-full bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded-xl py-3 sm:py-4 px-6 font-medium text-sm sm:text-base transition-all duration-200 flex items-center justify-center space-x-2 ${
+                        hoveredCard === service.id 
+                          ? 'shadow-lg scale-105 from-teal-700 to-cyan-700' 
+                          : 'shadow-md hover:shadow-lg'
+                      }`}
+                    >
+                      <span>Learn More</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </div>
+
+                  {/* Decorative Elements */}
+                  <div className={`absolute top-4 right-4 w-3 h-3 bg-gradient-to-br from-cyan-300/30 to-teal-300/30 rounded-full transition-opacity duration-300 ${
+                    hoveredCard === service.id ? 'opacity-100' : 'opacity-50'
+                  }`}></div>
+                  <div className={`absolute bottom-4 left-4 w-2 h-2 bg-gradient-to-br from-teal-300/30 to-cyan-300/30 rounded-full transition-opacity duration-300 ${
+                    hoveredCard === service.id ? 'opacity-100' : 'opacity-50'
+                  }`}></div>
+                </div>
               </div>
             );
           })}
         </div>
 
-        {/* Simple CTA Section */}
-        <div className={`text-center mt-12 transition-all duration-1000 delay-800 ${
+        {/* CTA Section */}
+        <div className={`text-center mt-16 lg:mt-20 transition-all duration-1000 delay-800 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <div
-            className="rounded-2xl p-8 border border-teal-200/30 shadow-lg hover:shadow-xl transition-all duration-300 max-w-2xl mx-auto"
-            style={{
-              background: 'linear-gradient(145deg, #f8f9fa, #e9ecef)',
-              boxShadow: '8px 8px 16px #d1d5db, -8px -8px 16px #ffffff'
-            }}
-          >
-            <h3 className="text-2xl font-bold text-teal-900 mb-3">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-8 sm:p-10 lg:p-12 shadow-xl border border-gray-100 max-w-3xl mx-auto">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Ready to Transform Your Vision?
             </h3>
-            <p className="text-base text-teal-700 mb-6">
-              Let's collaborate to create a digital experience that truly reflects your brand's story.
+            <p className="text-base sm:text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Let's collaborate to create a digital experience that truly reflects your brand's story and drives results.
             </p>
             <button
-              className="text-white px-6 py-3 rounded-lg text-base font-medium hover:scale-102 transition-all duration-200 shadow-md"
-              style={{
-                background: 'linear-gradient(145deg, #14b8a6, #0891b2)',
-                boxShadow: '4px 4px 8px #0891b2, -4px -4px 8px #14b8a6'
-              }}
+              className="inline-flex items-center space-x-2 bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-8 py-4 rounded-xl text-base sm:text-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-200"
               onClick={() => {
                 // Check if we're on the home page
                 if (window.location.pathname === '/') {
@@ -258,8 +260,8 @@ const Services = ({ data, mousePosition }) => {
                 }
               }}
             >
-              Start Your Project
-              <ArrowRight className="ml-2 w-4 h-4" />
+              <span>Start Your Project</span>
+              <ArrowRight className="w-5 h-5" />
             </button>
           </div>
         </div>
