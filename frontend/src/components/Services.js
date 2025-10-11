@@ -148,10 +148,10 @@ const Services = ({ data, mousePosition }) => {
                   {/* Service Image Section */}
                   {service.image && (
                     <div className="relative h-48 sm:h-56 overflow-hidden">
-                      <img 
+                      <LazyImage 
                         src={service.image} 
                         alt={service.title}
-                        className={`w-full h-full object-cover transition-transform duration-500 ${
+                        className={`w-full h-full transition-transform duration-500 ${
                           hoveredCard === service.id ? 'scale-110' : 'scale-100'
                         }`}
                       />
