@@ -18,9 +18,9 @@ const Hero = ({ data, mousePosition }) => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Enhanced Animated Background Elements */}
-      <div className="absolute inset-0">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16 px-4">
+      {/* Enhanced Animated Background Elements - z-0 to stay behind content */}
+      <div className="absolute inset-0 z-0">
         <div 
           className="absolute w-96 h-96 bg-gradient-to-br from-teal-200/30 to-cyan-200/30 rounded-full blur-3xl transition-transform duration-1000"
           style={{
