@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Search, Filter, Grid, List, ExternalLink, Github, Eye, Heart, Star, Calendar, User, Award, Zap } from 'lucide-react';
+import { ArrowLeft, Search, Filter, Grid, List, ExternalLink, Github, Eye, Heart, Star, Calendar, User, Award, Zap, ArrowRight } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
