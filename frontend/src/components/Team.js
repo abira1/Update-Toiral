@@ -91,11 +91,11 @@ const Team = ({ data, mousePosition }) => {
         </div>
 
         {data && data.length > 0 ? (
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 sm:gap-4 md:gap-6 lg:gap-8">
             {data.map((member, index) => (
             <Card
               key={member.id}
-              className={`group bg-white/80 backdrop-blur-sm border-teal-200/50 shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-8 cursor-pointer overflow-hidden ${
+              className={`group bg-white/80 backdrop-blur-sm border-teal-200/50 shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 md:hover:-translate-y-8 cursor-pointer overflow-hidden ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ 
@@ -107,7 +107,7 @@ const Team = ({ data, mousePosition }) => {
             >
               <div className="relative">
                 {/* Enhanced Avatar Container with 3D Effect */}
-                <div className="relative h-80 bg-gradient-to-br from-teal-100 to-cyan-100 overflow-hidden">
+                <div className="relative h-32 sm:h-48 md:h-64 lg:h-80 bg-gradient-to-br from-teal-100 to-cyan-100 overflow-hidden">
                   <LazyImage
                     src={member.avatar}
                     alt={member.name}
