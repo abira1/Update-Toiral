@@ -205,6 +205,18 @@ frontend:
           agent: "main"
           comment: "Added mobile-first design: On mobile, cards show only the image with name overlay at bottom. Desktop shows full card with text. Click on any card opens a beautiful modal popup with full member details including: large avatar image with gradient overlay, name and role in header, full description, all social media links as styled buttons (LinkedIn, Twitter, GitHub, Instagram, Facebook, YouTube, Website, Email, TikTok, Behance, Dribbble, Medium, Discord). Modal features: backdrop blur, smooth animations (fadeIn/slideUp), click outside to close, responsive design, matches teal/cyan theme. Social icons on hover overlay hidden on mobile to prevent conflicts with click-to-open behavior."
 
+  - task: "Remove Projects navbar link and fix section navigation scrolling"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/components/Header.js, frontend/src/pages/Home.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Removed 'Projects' link from main navigation in Header.js. Updated navLinks array to exclude Projects entry, now showing: About, Services, Courses, Portfolio, Team, Contact. Enhanced navigation scrolling behavior to properly scroll to section tops with 100px offset for fixed header. Replaced scrollIntoView() with getBoundingClientRect() + window.scrollTo() for precise positioning. Updated both Header.js (same-page navigation) and Home.js (cross-page navigation) with consistent scroll positioning that ensures sections start from top instead of end."
+
 metadata:
   created_by: "testing_agent"
   version: "1.0"
