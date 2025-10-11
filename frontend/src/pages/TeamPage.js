@@ -43,7 +43,13 @@ const TeamPage = () => {
       />
       <Header mousePosition={mousePosition} />
       <main className="min-h-screen">
-        <Team mousePosition={mousePosition} />
+        {loading ? (
+          <div className="flex justify-center items-center py-20">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600"></div>
+          </div>
+        ) : (
+          <Team data={teamData} mousePosition={mousePosition} />
+        )}
       </main>
       <Footer />
     </>
