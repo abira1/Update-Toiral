@@ -902,10 +902,10 @@ const ComprehensiveDashboard = () => {
                   {/* Service Image */}
                   {service.image && (
                     <div className="relative h-40 overflow-hidden bg-gray-100">
-                      <img 
+                      <LazyImage 
                         src={service.image} 
                         alt={service.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20"></div>
                     </div>
