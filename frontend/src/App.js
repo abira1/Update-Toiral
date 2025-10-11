@@ -46,7 +46,13 @@ function App() {
               <Routes>
                 {/* Public routes */}
                 <Route path="/" element={<Home />} />
-                <Route path="/service/:serviceId" element={<ServiceDetail />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/services" element={<ServicesOverview />} />
+                <Route path="/services/:slug" element={<ServiceDetail />} />
+                <Route path="/service/:serviceId" element={<ServiceDetail />} /> {/* Legacy support */}
+                <Route path="/team" element={<TeamPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/courses" element={<CoursesOverview />} />
                 <Route path="/portfolio" element={<Portfolio />} />
 
                 {/* Legal pages */}
