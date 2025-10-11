@@ -148,7 +148,7 @@ const Team = ({ data, mousePosition }) => {
                       {/* Twitter */}
                       {member.twitter && (
                         <div
-                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
+                          className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
                           style={{
                             transform: `perspective(1000px) rotateX(${mousePosition.y * 0.1}deg) rotateY(${mousePosition.x * 0.1}deg) scale(1.1)`
                           }}
@@ -158,14 +158,14 @@ const Team = ({ data, mousePosition }) => {
                           }}
                           title="Twitter Profile"
                         >
-                          <Twitter className="w-5 h-5 text-teal-600 group-hover:text-blue-400 transition-colors" />
+                          <Twitter className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-teal-600 group-hover:text-blue-400 transition-colors" />
                         </div>
                       )}
 
                       {/* GitHub */}
                       {member.github && (
                         <div
-                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
+                          className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
                           style={{
                             transform: `perspective(1000px) rotateX(${mousePosition.y * 0.1}deg) rotateY(${mousePosition.x * 0.1}deg) scale(1.1)`
                           }}
@@ -175,14 +175,14 @@ const Team = ({ data, mousePosition }) => {
                           }}
                           title="GitHub Profile"
                         >
-                          <Github className="w-5 h-5 text-teal-600 group-hover:text-gray-800 transition-colors" />
+                          <Github className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-teal-600 group-hover:text-gray-800 transition-colors" />
                         </div>
                       )}
 
                       {/* Instagram */}
                       {member.instagram && (
                         <div
-                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
+                          className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
                           style={{
                             transform: `perspective(1000px) rotateX(${mousePosition.y * 0.1}deg) rotateY(${mousePosition.x * 0.1}deg) scale(1.1)`
                           }}
@@ -192,14 +192,14 @@ const Team = ({ data, mousePosition }) => {
                           }}
                           title="Instagram Profile"
                         >
-                          <Instagram className="w-5 h-5 text-teal-600 group-hover:text-pink-500 transition-colors" />
+                          <Instagram className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-teal-600 group-hover:text-pink-500 transition-colors" />
                         </div>
                       )}
 
                       {/* Facebook */}
                       {member.facebook && (
                         <div
-                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
+                          className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
                           style={{
                             transform: `perspective(1000px) rotateX(${mousePosition.y * 0.1}deg) rotateY(${mousePosition.x * 0.1}deg) scale(1.1)`
                           }}
@@ -209,14 +209,14 @@ const Team = ({ data, mousePosition }) => {
                           }}
                           title="Facebook Profile"
                         >
-                          <Facebook className="w-5 h-5 text-teal-600 group-hover:text-blue-700 transition-colors" />
+                          <Facebook className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-teal-600 group-hover:text-blue-700 transition-colors" />
                         </div>
                       )}
 
                       {/* YouTube */}
                       {member.youtube && (
                         <div
-                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
+                          className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
                           style={{
                             transform: `perspective(1000px) rotateX(${mousePosition.y * 0.1}deg) rotateY(${mousePosition.x * 0.1}deg) scale(1.1)`
                           }}
@@ -226,14 +226,14 @@ const Team = ({ data, mousePosition }) => {
                           }}
                           title="YouTube Channel"
                         >
-                          <Youtube className="w-5 h-5 text-teal-600 group-hover:text-red-600 transition-colors" />
+                          <Youtube className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-teal-600 group-hover:text-red-600 transition-colors" />
                         </div>
                       )}
 
                       {/* TikTok */}
                       {member.tiktok && (
                         <div
-                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
+                          className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
                           style={{
                             transform: `perspective(1000px) rotateX(${mousePosition.y * 0.1}deg) rotateY(${mousePosition.x * 0.1}deg) scale(1.1)`
                           }}
@@ -243,14 +243,14 @@ const Team = ({ data, mousePosition }) => {
                           }}
                           title="TikTok Profile"
                         >
-                          <Camera className="w-5 h-5 text-teal-600 group-hover:text-black transition-colors" />
+                          <Camera className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-teal-600 group-hover:text-black transition-colors" />
                         </div>
                       )}
 
                       {/* Behance */}
                       {member.behance && (
                         <div
-                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
+                          className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
                           style={{
                             transform: `perspective(1000px) rotateX(${mousePosition.y * 0.1}deg) rotateY(${mousePosition.x * 0.1}deg) scale(1.1)`
                           }}
@@ -260,14 +260,14 @@ const Team = ({ data, mousePosition }) => {
                           }}
                           title="Behance Portfolio"
                         >
-                          <Palette className="w-5 h-5 text-teal-600 group-hover:text-blue-500 transition-colors" />
+                          <Palette className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-teal-600 group-hover:text-blue-500 transition-colors" />
                         </div>
                       )}
 
                       {/* Dribbble */}
                       {member.dribbble && (
                         <div
-                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
+                          className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
                           style={{
                             transform: `perspective(1000px) rotateX(${mousePosition.y * 0.1}deg) rotateY(${mousePosition.x * 0.1}deg) scale(1.1)`
                           }}
@@ -277,14 +277,14 @@ const Team = ({ data, mousePosition }) => {
                           }}
                           title="Dribbble Profile"
                         >
-                          <div className="w-5 h-5 bg-teal-600 group-hover:bg-pink-500 rounded-full transition-colors"></div>
+                          <div className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 bg-teal-600 group-hover:bg-pink-500 rounded-full transition-colors"></div>
                         </div>
                       )}
 
                       {/* Medium */}
                       {member.medium && (
                         <div
-                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
+                          className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
                           style={{
                             transform: `perspective(1000px) rotateX(${mousePosition.y * 0.1}deg) rotateY(${mousePosition.x * 0.1}deg) scale(1.1)`
                           }}
@@ -294,14 +294,14 @@ const Team = ({ data, mousePosition }) => {
                           }}
                           title="Medium Profile"
                         >
-                          <Edit3 className="w-5 h-5 text-teal-600 group-hover:text-green-600 transition-colors" />
+                          <Edit3 className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-teal-600 group-hover:text-green-600 transition-colors" />
                         </div>
                       )}
 
                       {/* Discord */}
                       {member.discord && (
                         <div
-                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
+                          className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
                           style={{
                             transform: `perspective(1000px) rotateX(${mousePosition.y * 0.1}deg) rotateY(${mousePosition.x * 0.1}deg) scale(1.1)`
                           }}
@@ -317,14 +317,14 @@ const Team = ({ data, mousePosition }) => {
                           }}
                           title={member.discord.startsWith('http') ? "Join Discord Server" : `Discord: ${member.discord} (Click to copy)`}
                         >
-                          <MessageCircle className="w-5 h-5 text-teal-600 group-hover:text-indigo-600 transition-colors" />
+                          <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-teal-600 group-hover:text-indigo-600 transition-colors" />
                         </div>
                       )}
 
                       {/* Website */}
                       {member.website && (
                         <div
-                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
+                          className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
                           style={{
                             transform: `perspective(1000px) rotateX(${mousePosition.y * 0.1}deg) rotateY(${mousePosition.x * 0.1}deg) scale(1.1)`
                           }}
@@ -334,14 +334,14 @@ const Team = ({ data, mousePosition }) => {
                           }}
                           title="Personal Website"
                         >
-                          <Globe className="w-5 h-5 text-teal-600 group-hover:text-purple-600 transition-colors" />
+                          <Globe className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-teal-600 group-hover:text-purple-600 transition-colors" />
                         </div>
                       )}
 
                       {/* Email */}
                       {member.email && (
                         <div
-                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
+                          className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
                           style={{
                             transform: `perspective(1000px) rotateX(${mousePosition.y * 0.1}deg) rotateY(${mousePosition.x * 0.1}deg) scale(1.1)`
                           }}
@@ -351,7 +351,7 @@ const Team = ({ data, mousePosition }) => {
                           }}
                           title="Send Email"
                         >
-                          <Mail className="w-5 h-5 text-teal-600 group-hover:text-red-500 transition-colors" />
+                          <Mail className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-teal-600 group-hover:text-red-500 transition-colors" />
                         </div>
                       )}
                     </div>
