@@ -84,8 +84,8 @@ const ServiceDetail = () => {
             trackServiceView(foundService.id, foundService.title);
             trackPageView(`Service Detail - ${foundService.title}`, `Toiral - ${foundService.title} Service`);
           } else {
-            console.log('No service found with slug:', serviceId);
-            console.log('Available service slugs:', data.services.map(s => s.title ? s.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') : 'no-title'));
+            console.log('No service found with identifier:', identifier);
+            console.log('Available service slugs:', data.services.map(s => getServiceSlug(s)));
           }
         } else {
           console.log('No services data in Firebase response');
