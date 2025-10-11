@@ -125,11 +125,18 @@ const Home = () => {
   // Handle scrolling to section when navigating from other pages
   useEffect(() => {
     if (location.state?.scrollTo && !isLoading) {
-      // Wait for components to render, then scroll
+      // Wait for components to render, then scroll with proper offset
       setTimeout(() => {
         const element = document.querySelector(location.state.scrollTo);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          const headerOffset = 100; // Offset for fixed header
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }
       }, 500);
     }
