@@ -232,32 +232,13 @@ const ServiceCard = memo(({ service, index, onLearnMore }) => {
           </div>
 
           {/* Content */}
-          <div className="flex-grow mb-6">
-            <h3 className="text-xl sm:text-2xl font-bold text-teal-900 mb-4 leading-tight">
+          <div className="flex-grow mb-4">
+            <h3 className="text-lg sm:text-xl font-bold text-teal-900 mb-3 leading-tight">
               {service.title}
             </h3>
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <p className="text-gray-600 leading-relaxed text-sm line-clamp-3">
               {service.description}
             </p>
-
-            {/* Features */}
-            <div className="space-y-3">
-              <h4 className="font-semibold text-teal-800 text-sm">Key Features:</h4>
-              <div className="space-y-2">
-                {service.features.map((feature, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.2 + idx * 0.1 }}
-                    className="flex items-start gap-3 group/feature hover:translate-x-1 transition-transform duration-200"
-                  >
-                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500 mt-2 flex-shrink-0 shadow-lg shadow-cyan-500/50" />
-                    <span className="text-gray-700 text-sm">{feature}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* CTA Button */}
