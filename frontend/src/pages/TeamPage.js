@@ -3,9 +3,12 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Team from '../components/Team';
 import SEO from '../components/SEO';
+import { subscribeToWebsiteData } from '../services/dataService';
 
 const TeamPage = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [teamData, setTeamData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -17,6 +20,17 @@ const TeamPage = () => {
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    const unsubscribe = subscribeToWebsiteData((data) => {
+      if (data?.team) {
+        setTeamData(data.team);
+      }
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
   }, []);
 
   return (
