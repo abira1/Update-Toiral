@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, memo } from "react";
 import { motion } from "framer-motion";
 import { Code, Search, Settings, Layers, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { getServiceSlug } from '../utils/slugify';
 
 // Icon mapping for existing services
 const iconMap = {
