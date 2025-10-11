@@ -131,7 +131,7 @@ const Team = ({ data, mousePosition }) => {
                       {/* LinkedIn */}
                       {member.linkedin && (
                         <div
-                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
+                          className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300 cursor-pointer group"
                           style={{
                             transform: `perspective(1000px) rotateX(${mousePosition.y * 0.1}deg) rotateY(${mousePosition.x * 0.1}deg) scale(1.1)`
                           }}
@@ -141,7 +141,7 @@ const Team = ({ data, mousePosition }) => {
                           }}
                           title="LinkedIn Profile"
                         >
-                          <Linkedin className="w-5 h-5 text-teal-600 group-hover:text-blue-600 transition-colors" />
+                          <Linkedin className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-teal-600 group-hover:text-blue-600 transition-colors" />
                         </div>
                       )}
 
