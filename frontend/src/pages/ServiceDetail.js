@@ -55,18 +55,27 @@ const ServiceDetail = () => {
           console.log('Available services:', data.services);
           console.log('Number of services:', data.services.length);
 
-          // Find service by matching slug
+          // Find service by matching slug or ID
           const foundService = data.services.find(service => {
             if (!service.title) {
               console.log('Service missing title:', service);
               return false;
             }
-            const slug = service.title
-              .toLowerCase()
-              .replace(/[^a-z0-9]+/g, '-')
-              .replace(/(^-|-$)/g, '');
-            console.log(`Comparing slug "${slug}" with serviceId "${serviceId}"`);
-            return slug === serviceId;
+            
+            // Check by SEO-friendly slug first
+            const serviceSlug = getServiceSlug(service);
+            console.log(`Comparing slug "${serviceSlug}" with identifier "${identifier}"`);
+            if (serviceSlug === identifier) {
+              return true;
+            }
+            
+            // Fallback to numeric ID for legacy support
+            if (service.id.toString() === identifier) {
+              console.log(`Found service by ID: ${service.id}`);
+              return true;
+            }
+            
+            return false;
           });
 
           console.log('Found service:', foundService);
