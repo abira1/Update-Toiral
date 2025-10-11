@@ -142,7 +142,7 @@ const SEO = ({
       },
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://toiral.com/search?q={search_term_string}",
+        "target": "https://toiral-development.web.app/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     };
