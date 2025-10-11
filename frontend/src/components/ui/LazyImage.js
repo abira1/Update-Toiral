@@ -177,6 +177,8 @@ export const HeroImage = ({
   priority = true,
   ...props
 }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     if (priority && src) {
       // Preload critical images
@@ -187,21 +189,46 @@ export const HeroImage = ({
       document.head.appendChild(link);
       
       return () => {
-        document.head.removeChild(link);
+        if (document.head.contains(link)) {
+          document.head.removeChild(link);
+        }
       };
     }
   }, [src, priority]);
 
   if (priority) {
-    // For critical images, load immediately without lazy loading
+    // For critical images, load immediately with blur effect
+    const blurPlaceholder = generateBlurPlaceholder(src);
+    
     return (
-      <img
-        src={src}
-        alt={alt}
-        className={cn("w-full h-full object-cover", className)}
-        loading="eager"
-        {...props}
-      />
+      <div className={cn("relative overflow-hidden bg-gradient-to-br from-teal-50 to-cyan-50", className)}>
+        {/* Blur Placeholder */}
+        {blurPlaceholder && !isLoaded && (
+          <img
+            src={blurPlaceholder}
+            alt=""
+            className={cn(
+              "absolute inset-0 w-full h-full object-cover transition-all duration-700",
+              isLoaded ? "opacity-0 scale-110 blur-xl" : "opacity-100 scale-100 blur-md"
+            )}
+            aria-hidden="true"
+            loading="eager"
+          />
+        )}
+        
+        {/* Main Image */}
+        <img
+          src={src}
+          alt={alt}
+          className={cn(
+            "w-full h-full object-cover transition-all duration-700",
+            isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-95"
+          )}
+          loading="eager"
+          onLoad={() => setIsLoaded(true)}
+          {...props}
+        />
+      </div>
     );
   }
 
