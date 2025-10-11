@@ -98,7 +98,7 @@ const Header = ({ mousePosition }) => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button
-              onClick={() => handleNavigation('#contact')}
+              onClick={() => handleNavigation('/contact', true)}
               className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white px-6 py-3 rounded-2xl transform transition-all duration-300 shadow-lg shadow-teal-500/20 hover:shadow-xl hover:shadow-teal-500/30 hover:scale-105"
               style={{
                 transform: `perspective(1000px) rotateX(${mousePosition.y * 0.02}deg) rotateY(${mousePosition.x * 0.02}deg) scale(1.05)`
