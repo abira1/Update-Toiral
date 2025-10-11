@@ -5,6 +5,20 @@ import Contact from '../components/Contact';
 import SEO from '../components/SEO';
 
 const ContactPage = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
     <>
       <SEO 
@@ -13,7 +27,7 @@ const ContactPage = () => {
         keywords="contact toiral, web development quote, hire developers bangladesh, web design consultation"
         url="https://toiral.com/contact"
       />
-      <Header />
+      <Header mousePosition={mousePosition} />
       <main className="min-h-screen pt-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -25,7 +39,7 @@ const ContactPage = () => {
               something amazing. Get in touch for a free consultation.
             </p>
           </div>
-          <Contact />
+          <Contact mousePosition={mousePosition} />
         </div>
       </main>
       <Footer />
