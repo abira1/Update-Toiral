@@ -379,7 +379,8 @@ const Team = ({ data, mousePosition }) => {
                   }`}></div>
                 </div>
 
-                <CardContent className="p-2 sm:p-4 md:p-6 relative">
+                {/* Card Content - Hidden on mobile, shown on md+ */}
+                <CardContent className="hidden md:block p-2 sm:p-4 md:p-6 relative">
                   {/* Enhanced Background Effect */}
                   <div className={`absolute inset-0 bg-gradient-to-br from-teal-50/50 to-cyan-50/50 transform transition-transform duration-500 ${
                     hoveredMember === member.id ? 'scale-105 rotate-1' : 'scale-100 rotate-0'
@@ -412,6 +413,13 @@ const Team = ({ data, mousePosition }) => {
                     hoveredMember === member.id ? 'scale-125 translate-y-1 -translate-x-1' : 'scale-100'
                   }`}></div>
                 </CardContent>
+
+                {/* Mobile: Name overlay on image */}
+                <div className="md:hidden absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-2 text-center">
+                  <h3 className="text-xs font-bold text-white line-clamp-1">
+                    {member.name}
+                  </h3>
+                </div>
               </div>
             </Card>
             ))}
