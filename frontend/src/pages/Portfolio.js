@@ -12,6 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { subscribeToWebsiteData } from '../services/dataService';
 import { trackProjectInteraction, trackPageView } from '../services/analyticsService';
 import { PortfolioPageSkeleton } from '../components/ui/SkeletonScreens';
+import LazyImage from '../components/ui/LazyImage';
 
 const Portfolio = () => {
   const navigate = useNavigate();
