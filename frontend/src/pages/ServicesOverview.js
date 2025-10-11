@@ -41,7 +41,7 @@ const ServicesOverview = () => {
         keywords="web development services, custom websites, seo services, admin panels, full stack development, toiral services"
         url="https://toiral.com/services"
       />
-      <Header />
+      <Header mousePosition={mousePosition} />
       <main className="min-h-screen pt-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -58,7 +58,7 @@ const ServicesOverview = () => {
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600"></div>
             </div>
           ) : (
-            <EnhancedServices services={services} />
+            <EnhancedServices data={services} mousePosition={mousePosition} />
           )}
         </div>
       </main>
