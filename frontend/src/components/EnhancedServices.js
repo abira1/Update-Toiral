@@ -343,7 +343,7 @@ const EnhancedServices = ({ data, mousePosition }) => {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 mb-16 lg:mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mb-16 lg:mb-20">
           {servicesData.map((service, index) => (
             <ServiceCard
               key={service.id}
