@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import About from '../components/About';
-import Services from '../components/Services';
+import EnhancedServices from '../components/EnhancedServices';
 import Courses from '../components/Courses';
 import Projects from '../components/Projects';
 import Team from '../components/Team';
