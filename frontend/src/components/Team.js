@@ -469,10 +469,287 @@ const Team = ({ data, mousePosition }) => {
         </div>
       </div>
 
+      {/* Team Member Detail Modal */}
+      {isModalOpen && selectedMember && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn"
+          onClick={closeModal}
+        >
+          <div 
+            className="relative bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 animate-slideUp"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-teal-600 hover:text-white transition-all duration-300 group"
+            >
+              <svg className="w-5 h-5 text-gray-600 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Header with Image */}
+            <div className="relative h-64 bg-gradient-to-br from-teal-100 to-cyan-100 overflow-hidden rounded-t-3xl">
+              <LazyImage
+                src={selectedMember.avatar}
+                alt={selectedMember.name}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+              
+              {/* Name and Role Overlay */}
+              <div className="absolute bottom-6 left-6 right-6">
+                <h2 className="text-3xl font-bold text-white mb-2">
+                  {selectedMember.name}
+                </h2>
+                <div className="inline-block bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+                  {selectedMember.role}
+                </div>
+              </div>
+
+              {/* Decorative Elements */}
+              <div className="absolute top-6 right-6 w-20 h-20 bg-gradient-to-br from-cyan-300/30 to-teal-300/30 rounded-full blur-2xl"></div>
+              <div className="absolute bottom-6 left-1/4 w-16 h-16 bg-gradient-to-br from-teal-300/30 to-cyan-300/30 rounded-full blur-xl"></div>
+            </div>
+
+            {/* Content */}
+            <div className="p-6 sm:p-8">
+              {/* Description */}
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold text-teal-900 mb-3 flex items-center">
+                  <div className="w-1 h-5 bg-gradient-to-b from-teal-500 to-cyan-500 rounded-full mr-3"></div>
+                  About
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  {selectedMember.description}
+                </p>
+              </div>
+
+              {/* Social Links */}
+              {(selectedMember.linkedin || selectedMember.twitter || selectedMember.github || selectedMember.instagram || 
+                selectedMember.facebook || selectedMember.youtube || selectedMember.tiktok || selectedMember.behance || 
+                selectedMember.dribbble || selectedMember.medium || selectedMember.discord || selectedMember.website || 
+                selectedMember.email) && (
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-teal-900 mb-4 flex items-center">
+                    <div className="w-1 h-5 bg-gradient-to-b from-teal-500 to-cyan-500 rounded-full mr-3"></div>
+                    Connect
+                  </h3>
+                  <div className="flex flex-wrap gap-3">
+                    {/* LinkedIn */}
+                    {selectedMember.linkedin && (
+                      <a
+                        href={selectedMember.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300"
+                      >
+                        <Linkedin className="w-5 h-5" />
+                        <span className="text-sm font-medium">LinkedIn</span>
+                      </a>
+                    )}
+
+                    {/* Twitter */}
+                    {selectedMember.twitter && (
+                      <a
+                        href={selectedMember.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300"
+                      >
+                        <Twitter className="w-5 h-5" />
+                        <span className="text-sm font-medium">Twitter</span>
+                      </a>
+                    )}
+
+                    {/* GitHub */}
+                    {selectedMember.github && (
+                      <a
+                        href={selectedMember.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-gray-700 to-gray-800 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300"
+                      >
+                        <Github className="w-5 h-5" />
+                        <span className="text-sm font-medium">GitHub</span>
+                      </a>
+                    )}
+
+                    {/* Instagram */}
+                    {selectedMember.instagram && (
+                      <a
+                        href={selectedMember.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300"
+                      >
+                        <Instagram className="w-5 h-5" />
+                        <span className="text-sm font-medium">Instagram</span>
+                      </a>
+                    )}
+
+                    {/* Facebook */}
+                    {selectedMember.facebook && (
+                      <a
+                        href={selectedMember.facebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300"
+                      >
+                        <Facebook className="w-5 h-5" />
+                        <span className="text-sm font-medium">Facebook</span>
+                      </a>
+                    )}
+
+                    {/* YouTube */}
+                    {selectedMember.youtube && (
+                      <a
+                        href={selectedMember.youtube}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300"
+                      >
+                        <Youtube className="w-5 h-5" />
+                        <span className="text-sm font-medium">YouTube</span>
+                      </a>
+                    )}
+
+                    {/* Website */}
+                    {selectedMember.website && (
+                      <a
+                        href={selectedMember.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300"
+                      >
+                        <Globe className="w-5 h-5" />
+                        <span className="text-sm font-medium">Website</span>
+                      </a>
+                    )}
+
+                    {/* Email */}
+                    {selectedMember.email && (
+                      <a
+                        href={`mailto:${selectedMember.email}`}
+                        className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300"
+                      >
+                        <Mail className="w-5 h-5" />
+                        <span className="text-sm font-medium">Email</span>
+                      </a>
+                    )}
+
+                    {/* TikTok */}
+                    {selectedMember.tiktok && (
+                      <a
+                        href={selectedMember.tiktok}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-gray-900 to-black text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300"
+                      >
+                        <Camera className="w-5 h-5" />
+                        <span className="text-sm font-medium">TikTok</span>
+                      </a>
+                    )}
+
+                    {/* Behance */}
+                    {selectedMember.behance && (
+                      <a
+                        href={selectedMember.behance}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300"
+                      >
+                        <Palette className="w-5 h-5" />
+                        <span className="text-sm font-medium">Behance</span>
+                      </a>
+                    )}
+
+                    {/* Dribbble */}
+                    {selectedMember.dribbble && (
+                      <a
+                        href={selectedMember.dribbble}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-pink-500 to-pink-600 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300"
+                      >
+                        <div className="w-5 h-5 bg-white rounded-full"></div>
+                        <span className="text-sm font-medium">Dribbble</span>
+                      </a>
+                    )}
+
+                    {/* Medium */}
+                    {selectedMember.medium && (
+                      <a
+                        href={selectedMember.medium}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300"
+                      >
+                        <Edit3 className="w-5 h-5" />
+                        <span className="text-sm font-medium">Medium</span>
+                      </a>
+                    )}
+
+                    {/* Discord */}
+                    {selectedMember.discord && (
+                      <a
+                        href={selectedMember.discord.startsWith('http') ? selectedMember.discord : '#'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => {
+                          if (!selectedMember.discord.startsWith('http')) {
+                            e.preventDefault();
+                            navigator.clipboard.writeText(selectedMember.discord);
+                          }
+                        }}
+                        className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-indigo-600 to-indigo-700 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300"
+                      >
+                        <MessageCircle className="w-5 h-5" />
+                        <span className="text-sm font-medium">Discord</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Decorative Bottom Element */}
+              <div className="mt-8 flex items-center justify-center">
+                <div className="w-32 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       <style jsx>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
           50% { transform: translateY(-12px) rotate(180deg); }
+        }
+        
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+          from { 
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+          }
+          to { 
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+        
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out;
+        }
+        
+        .animate-slideUp {
+          animation: slideUp 0.3s ease-out;
         }
       `}</style>
     </section>
