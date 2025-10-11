@@ -9,6 +9,7 @@ import { Badge } from '../components/ui/badge';
 import { subscribeToWebsiteData } from '../services/dataService';
 import { trackServiceView, trackPageView } from '../services/analyticsService';
 import PackageSelectionModal from '../components/PackageSelectionModal';
+import { getServiceSlug } from '../utils/slugify';
 
 // Icon mapping for dynamic services
 const iconMap = {
