@@ -51,6 +51,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../..
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../../components/ui/tabs';
 import { Badge } from '../../components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '../../components/ui/avatar';
+import LazyImage from '../../components/ui/LazyImage';
 import {
   DropdownMenu,
   DropdownMenuContent,
