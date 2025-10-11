@@ -19,11 +19,11 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { label: 'About', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Team', href: '#team' },
-    { label: 'Contact', href: '#contact' }
+    { label: 'About', href: '/about', isRoute: true },
+    { label: 'Services', href: '/services', isRoute: true },
+    { label: 'Projects', href: '#projects' }, // Keep on home page for now
+    { label: 'Team', href: '/team', isRoute: true },
+    { label: 'Contact', href: '/contact', isRoute: true }
   ];
 
   return (
