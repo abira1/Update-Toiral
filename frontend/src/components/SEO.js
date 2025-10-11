@@ -104,7 +104,7 @@ const SEO = ({
       "@type": "Organization",
       "name": "Toiral",
       "alternateName": "Toiral Web Development Company",
-      "url": "https://toiral.com",
+      "url": "https://toiral-development.web.app",
       "logo": "https://i.postimg.cc/G2yPfwK1/toiral__2_.png",
       "description": "Professional web development and design agency specializing in custom websites, SEO services, and digital experiences.",
       "address": {
@@ -134,7 +134,7 @@ const SEO = ({
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Toiral",
-      "url": "https://toiral.com",
+      "url": "https://toiral-development.web.app",
       "description": description,
       "publisher": {
         "@type": "Organization",
