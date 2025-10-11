@@ -147,40 +147,56 @@ const Home = () => {
         keywords="web development Bangladesh, web design Dhaka, SEO services, custom websites, responsive design, React development, digital agency Bangladesh, professional web development"
         url="https://toiral.com/"
       />
-      {/* Global 3D Mouse Interactive Elements */}
+      {/* Global Smooth Background Animations */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        {/* Floating 3D Orbs */}
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-6 h-6 bg-gradient-to-br from-teal-400/20 to-cyan-500/20 rounded-full backdrop-blur-sm"
-            style={{
-              left: `${20 + (i * 10)}%`,
-              top: `${10 + (i * 8)}%`,
-              transform: `translate(${mousePosition.x * (0.02 + i * 0.005)}px, ${mousePosition.y * (0.02 + i * 0.005)}px) rotateX(${mousePosition.y * 0.1}deg) rotateY(${mousePosition.x * 0.1}deg)`,
-              transition: 'transform 0.3s ease-out',
-              animationDelay: `${i * 0.2}s`
-            }}
-          />
-        ))}
+        {/* Smooth animated gradient orbs */}
+        <div className="absolute top-10 left-10 w-40 h-40 bg-gradient-to-br from-teal-400/15 to-cyan-400/15 rounded-full blur-3xl animate-pulse" 
+          style={{ animation: 'globalFloat1 18s ease-in-out infinite' }} />
+        <div className="absolute top-1/4 right-20 w-48 h-48 bg-gradient-to-br from-cyan-300/10 to-teal-300/10 rounded-full blur-3xl animate-pulse" 
+          style={{ animation: 'globalFloat2 22s ease-in-out infinite 3s' }} />
+        <div className="absolute bottom-20 left-1/3 w-44 h-44 bg-gradient-to-br from-teal-500/12 to-cyan-500/12 rounded-full blur-3xl animate-pulse" 
+          style={{ animation: 'globalFloat3 20s ease-in-out infinite 6s' }} />
+        <div className="absolute top-1/2 right-1/3 w-36 h-36 bg-gradient-to-br from-cyan-400/10 to-teal-400/10 rounded-full blur-3xl animate-pulse" 
+          style={{ animation: 'globalFloat1 25s ease-in-out infinite 9s' }} />
 
-        {/* Interactive 3D Shapes */}
-        <div
-          className="absolute top-1/4 right-1/4 w-32 h-32 bg-gradient-to-br from-teal-500/10 to-cyan-500/10 rounded-3xl backdrop-blur-sm border border-teal-200/30 shadow-xl"
-          style={{
-            transform: `perspective(1000px) rotateX(${mousePosition.y * 0.1}deg) rotateY(${mousePosition.x * 0.1}deg) translate(${mousePosition.x * 0.05}px, ${mousePosition.y * 0.05}px)`,
-            transition: 'transform 0.4s ease-out'
-          }}
-        />
-
-        <div
-          className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-gradient-to-br from-cyan-500/10 to-teal-500/10 rounded-2xl backdrop-blur-sm border border-cyan-200/30 shadow-lg"
-          style={{
-            transform: `perspective(1000px) rotateX(${-mousePosition.y * 0.15}deg) rotateY(${-mousePosition.x * 0.15}deg) translate(${-mousePosition.x * 0.03}px, ${-mousePosition.y * 0.03}px)`,
-            transition: 'transform 0.5s ease-out'
-          }}
-        />
+        {/* Smooth animated shapes */}
+        <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-gradient-to-br from-teal-500/8 to-cyan-500/8 rounded-3xl backdrop-blur-sm border border-teal-200/20 shadow-xl"
+          style={{ animation: 'shapeRotate 30s linear infinite' }} />
+        <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-gradient-to-br from-cyan-500/8 to-teal-500/8 rounded-2xl backdrop-blur-sm border border-cyan-200/20 shadow-lg"
+          style={{ animation: 'shapeScale 24s ease-in-out infinite 5s' }} />
       </div>
+
+      <style jsx>{`
+        @keyframes globalFloat1 {
+          0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.15; }
+          25% { transform: translate(30px, -40px) scale(1.1); opacity: 0.25; }
+          50% { transform: translate(-20px, -60px) scale(1.05); opacity: 0.2; }
+          75% { transform: translate(35px, -35px) scale(1.15); opacity: 0.3; }
+        }
+
+        @keyframes globalFloat2 {
+          0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.1; }
+          33% { transform: translate(-25px, 45px) scale(1.2); opacity: 0.2; }
+          66% { transform: translate(30px, 50px) scale(1.1); opacity: 0.15; }
+        }
+
+        @keyframes globalFloat3 {
+          0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.12; }
+          40% { transform: translate(40px, -30px) scale(1.15); opacity: 0.22; }
+          80% { transform: translate(-35px, -25px) scale(1.08); opacity: 0.18; }
+        }
+
+        @keyframes shapeRotate {
+          0% { transform: rotate(0deg) scale(1); opacity: 0.08; }
+          50% { transform: rotate(180deg) scale(1.1); opacity: 0.15; }
+          100% { transform: rotate(360deg) scale(1); opacity: 0.08; }
+        }
+
+        @keyframes shapeScale {
+          0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.08; }
+          50% { transform: scale(1.2) rotate(15deg); opacity: 0.15; }
+        }
+      `}</style>
 
       <Header mousePosition={mousePosition} />
       <Hero data={data.hero} mousePosition={mousePosition} />
