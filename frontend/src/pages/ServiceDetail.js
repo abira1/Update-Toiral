@@ -17,7 +17,7 @@ const iconMap = {
 };
 
 const ServiceDetail = () => {
-  const { serviceId } = useParams();
+  const { serviceId, slug } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -27,6 +27,9 @@ const ServiceDetail = () => {
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState(null);
+
+  // Get the identifier (either serviceId or slug from URL)
+  const identifier = slug || serviceId;
 
   useEffect(() => {
     setIsVisible(true);
