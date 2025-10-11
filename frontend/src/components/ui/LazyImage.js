@@ -1,16 +1,25 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { cn } from "../../lib/utils";
 
+// Modern shimmer placeholder SVG
+const SHIMMER_PLACEHOLDER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Cdefs%3E%3ClinearGradient id='shimmer' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0%25' stop-color='%23f0f9ff'/%3E%3Cstop offset='50%25' stop-color='%23e0f2fe'/%3E%3Cstop offset='100%25' stop-color='%23f0f9ff'/%3E%3C/linearGradient%3E%3ClinearGradient id='overlay' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2314b8a6' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23shimmer)'/%3E%3Crect width='100%25' height='100%25' fill='url(%23overlay)'/%3E%3C/svg%3E";
+
 // Generate a tiny blurred placeholder from image URL
 const generateBlurPlaceholder = (src) => {
-  if (!src) return null;
+  if (!src) return SHIMMER_PLACEHOLDER;
   
-  // For Unsplash images, use their blur parameter
+  // For Unsplash images, use their blur parameter for ultra-fast load
   if (src.includes('unsplash.com')) {
-    return `${src}&blur=50&w=50&q=10`;
+    return `${src}${src.includes('?') ? '&' : '?'}blur=100&w=40&q=1&fm=jpg`;
   }
-  // For other images, use a gradient placeholder
-  return "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2314b8a6'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23g)' opacity='0.1'/%3E%3C/svg%3E";
+  
+  // For i.postimg.cc or other external images, use shimmer
+  if (src.includes('postimg.cc') || src.startsWith('http')) {
+    return SHIMMER_PLACEHOLDER;
+  }
+  
+  // For local images, use gradient placeholder
+  return SHIMMER_PLACEHOLDER;
 };
 
 const LazyImage = ({
