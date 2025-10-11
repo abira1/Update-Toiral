@@ -74,11 +74,11 @@ const Hero = ({ data, mousePosition }) => {
               transform: `perspective(1000px) rotateX(${mousePosition.y * 0.05}deg) rotateY(${mousePosition.x * 0.05}deg) scale(${1 + mousePosition.x * 0.0005})`
             }}
           >
-            <HeroImage
+            <img
               src="https://i.postimg.cc/G2yPfwK1/toiral__2_.png"
               alt="Toiral - Professional Web Development & Design Agency - Imagine, Develop, Deploy"
               className="mx-auto w-auto max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[400px] h-auto max-h-[80px] sm:max-h-[100px] md:max-h-[120px] lg:max-h-[140px] filter drop-shadow-2xl hover:scale-105 transition-transform duration-300"
-              priority={true}
+              loading="eager"
             />
           </div>
 
