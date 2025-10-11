@@ -180,65 +180,245 @@ export const ResponsiveImage = ({
   );
 };
 
+// Modern logo loader with instant appearance
+export const LogoImage = ({
+  src,
+  alt,
+  className = "",
+  ...props
+}) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [loadProgress, setLoadProgress] = useState(0);
+
+  useEffect(() => {
+    if (src) {
+      // Preload the logo image
+      const img = new Image();
+      img.src = src;
+      
+      // Simulate smooth progress for better UX
+      const progressInterval = setInterval(() => {
+        setLoadProgress(prev => {
+          if (prev >= 90) {
+            clearInterval(progressInterval);
+            return prev;
+          }
+          return prev + 10;
+        });
+      }, 50);
+      
+      img.onload = () => {
+        clearInterval(progressInterval);
+        setLoadProgress(100);
+        setTimeout(() => setIsLoaded(true), 100);
+      };
+      
+      img.onerror = () => {
+        clearInterval(progressInterval);
+        setIsLoaded(true);
+      };
+      
+      return () => clearInterval(progressInterval);
+    }
+  }, [src]);
+
+  return (
+    <div className={cn("relative inline-block", className)}>
+      {/* Skeleton loader for logo */}
+      {!isLoaded && (
+        <div className="absolute inset-0 rounded-lg overflow-hidden bg-gradient-to-r from-teal-100 via-cyan-100 to-teal-100 animate-pulse">
+          <div 
+            className="h-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-all duration-300"
+            style={{
+              width: `${loadProgress}%`,
+              transform: 'translateX(-100%)',
+              animation: 'shimmer-slide 1.5s infinite'
+            }}
+          />
+        </div>
+      )}
+      
+      {/* Actual Logo */}
+      <img
+        src={src}
+        alt={alt}
+        className={cn(
+          "transition-all duration-500 ease-out",
+          isLoaded 
+            ? "opacity-100 scale-100 blur-0" 
+            : "opacity-0 scale-95 blur-sm"
+        )}
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+        {...props}
+      />
+      
+      <style jsx>{`
+        @keyframes shimmer-slide {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(400%); }
+        }
+      `}</style>
+    </div>
+  );
+};
+
 // Hero image component with preloading for critical images
 export const HeroImage = ({
   src,
   alt,
   className = "",
   priority = true,
+  showProgress = false,
   ...props
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [loadProgress, setLoadProgress] = useState(0);
+  const [isInView, setIsInView] = useState(false);
+  const imgRef = useRef(null);
 
   useEffect(() => {
-    if (priority && src) {
-      // Preload critical images
+    // Early visibility check for hero images
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0,
+        rootMargin: "200px"
+      }
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (priority && src && isInView) {
+      // Create preload link for instant loading
       const link = document.createElement('link');
       link.rel = 'preload';
       link.as = 'image';
       link.href = src;
+      link.fetchpriority = 'high';
       document.head.appendChild(link);
       
+      // Progressive loading simulation for better UX
+      const img = new Image();
+      img.src = src;
+      
+      const progressInterval = setInterval(() => {
+        setLoadProgress(prev => {
+          if (prev >= 90) {
+            clearInterval(progressInterval);
+            return prev;
+          }
+          return prev + 15;
+        });
+      }, 100);
+      
+      img.onload = () => {
+        clearInterval(progressInterval);
+        setLoadProgress(100);
+        setTimeout(() => setIsLoaded(true), 150);
+      };
+      
+      img.onerror = () => {
+        clearInterval(progressInterval);
+        setIsLoaded(true);
+      };
+      
       return () => {
+        clearInterval(progressInterval);
         if (document.head.contains(link)) {
           document.head.removeChild(link);
         }
       };
     }
-  }, [src, priority]);
+  }, [src, priority, isInView]);
 
   if (priority) {
-    // For critical images, load immediately with blur effect
     const blurPlaceholder = generateBlurPlaceholder(src);
     
     return (
-      <div className={cn("relative overflow-hidden bg-gradient-to-br from-teal-50 to-cyan-50", className)}>
-        {/* Blur Placeholder */}
+      <div ref={imgRef} className={cn("relative overflow-hidden", className)}>
+        {/* Modern gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-cyan-50 to-teal-50" />
+        
+        {/* Blur Placeholder with smooth transition */}
         {blurPlaceholder && !isLoaded && (
           <img
             src={blurPlaceholder}
             alt=""
             className={cn(
-              "absolute inset-0 w-full h-full object-cover transition-all duration-700",
-              isLoaded ? "opacity-0 scale-110 blur-xl" : "opacity-100 scale-100 blur-md"
+              "absolute inset-0 w-full h-full object-contain transition-all duration-1000 ease-out",
+              isLoaded 
+                ? "opacity-0 scale-110 blur-2xl" 
+                : "opacity-60 scale-100 blur-md"
             )}
             aria-hidden="true"
             loading="eager"
           />
         )}
         
-        {/* Main Image */}
-        <img
-          src={src}
-          alt={alt}
-          className={cn(
-            "w-full h-full object-cover transition-all duration-700",
-            isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-95"
-          )}
-          loading="eager"
-          onLoad={() => setIsLoaded(true)}
-          {...props}
-        />
+        {/* Progressive loading bar (optional) */}
+        {showProgress && !isLoaded && loadProgress > 0 && (
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-teal-100/50 overflow-hidden">
+            <div 
+              className="h-full bg-gradient-to-r from-teal-500 to-cyan-500 transition-all duration-300 ease-out"
+              style={{ width: `${loadProgress}%` }}
+            />
+          </div>
+        )}
+        
+        {/* Main Image with smooth reveal */}
+        {isInView && (
+          <img
+            src={src}
+            alt={alt}
+            className={cn(
+              "relative w-full h-full object-contain transition-all duration-1000 ease-out",
+              isLoaded 
+                ? "opacity-100 scale-100 blur-0" 
+                : "opacity-0 scale-95 blur-sm"
+            )}
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+            onLoad={() => {
+              setLoadProgress(100);
+              setIsLoaded(true);
+            }}
+            {...props}
+          />
+        )}
+        
+        {/* Shimmer effect during load */}
+        {!isLoaded && isInView && (
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div 
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+              style={{
+                animation: 'shimmer-sweep 2s infinite',
+                transform: 'translateX(-100%)'
+              }}
+            />
+          </div>
+        )}
+        
+        <style jsx>{`
+          @keyframes shimmer-sweep {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(200%); }
+          }
+        `}</style>
       </div>
     );
   }
