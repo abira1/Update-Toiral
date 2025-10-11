@@ -439,10 +439,7 @@ const Team = ({ data, mousePosition }) => {
               <Button
                 className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white px-6 py-3 rounded-xl"
                 onClick={() => {
-                  const element = document.querySelector('#contact');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                  }
+                  window.open('mailto:toiral.dev@gmail.com?subject=Join Your Team - Application&body=Hi Toiral team,%0D%0A%0D%0AI am interested in joining your team. Please find my details below:%0D%0A%0D%0A[Please include your resume and portfolio]', '_blank');
                 }}
               >
                 Join Our Team
