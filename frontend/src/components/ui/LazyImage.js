@@ -3,8 +3,10 @@ import { cn } from "../../lib/utils";
 
 // Generate a tiny blurred placeholder from image URL
 const generateBlurPlaceholder = (src) => {
+  if (!src) return null;
+  
   // For Unsplash images, use their blur parameter
-  if (src?.includes('unsplash.com')) {
+  if (src.includes('unsplash.com')) {
     return `${src}&blur=50&w=50&q=10`;
   }
   // For other images, use a gradient placeholder
