@@ -136,10 +136,10 @@ const Team = ({ data, mousePosition }) => {
                     hoveredMember === member.id ? 'opacity-100' : 'opacity-0'
                   }`}></div>
 
-                  {/* Enhanced Social Links Overlay */}
-                  <div className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${
+                  {/* Enhanced Social Links Overlay - Hidden on mobile, shown on hover for desktop */}
+                  <div className={`hidden md:flex absolute inset-0 items-center justify-center transition-all duration-300 ${
                     hoveredMember === member.id ? 'opacity-100' : 'opacity-0'
-                  }`}>
+                  }`} onClick={(e) => e.stopPropagation()}>
                     <div className="flex flex-wrap justify-center gap-1 sm:gap-2 max-w-[90%] sm:max-w-xs px-1 sm:px-0">
                       {/* LinkedIn */}
                       {member.linkedin && (
