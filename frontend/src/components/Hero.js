@@ -39,8 +39,8 @@ const Hero = ({ data, mousePosition }) => {
         />
       </div>
 
-      {/* Smooth Floating Geometric Shapes */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {/* Smooth Floating Geometric Shapes - z-0 to stay behind content */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         {/* Animated gradient circles */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-teal-400/20 to-cyan-400/20 rounded-full blur-2xl animate-pulse" 
           style={{ animation: 'smoothFloat 8s ease-in-out infinite' }} />
