@@ -116,6 +116,7 @@ const Team = ({ data, mousePosition }) => {
               }}
               onMouseEnter={() => setHoveredMember(member.id)}
               onMouseLeave={() => setHoveredMember(null)}
+              onClick={() => handleCardClick(member)}
             >
               <div className="relative">
                 {/* Enhanced Avatar Container with 3D Effect */}
