@@ -220,13 +220,13 @@ const ServiceCard = memo(({ service, index, onLearnMore }) => {
           transition={{ duration: 0.3 }}
         >
           {/* Header */}
-          <div className="flex items-start justify-between mb-6">
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center text-white shadow-lg group-hover:shadow-cyan-500/50 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-              <IconComponent className="w-7 h-7" />
+          <div className="flex items-start justify-between mb-4">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center text-white shadow-lg group-hover:shadow-cyan-500/50 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+              <IconComponent className="w-6 h-6" />
             </div>
             <div className={`transition-all duration-300 ${isHovered ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2'}`}>
-              <div className="w-8 h-8 flex items-center justify-center rounded-full bg-teal-100">
-                <ArrowRight className="w-4 h-4 text-teal-600" />
+              <div className="w-7 h-7 flex items-center justify-center rounded-full bg-teal-100">
+                <ArrowRight className="w-3 h-3 text-teal-600" />
               </div>
             </div>
           </div>
