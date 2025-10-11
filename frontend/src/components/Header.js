@@ -40,10 +40,17 @@ const Header = ({ mousePosition }) => {
     const isHomePage = location.pathname === '/';
 
     if (isHomePage) {
-      // On home page: scroll to section
+      // On home page: scroll to section with proper offset for fixed header
       const element = document.querySelector(href);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        const headerOffset = 100; // Offset for fixed header
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }
     } else {
       // On other pages: navigate to home page with hash
