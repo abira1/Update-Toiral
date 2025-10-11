@@ -39,24 +39,23 @@ const Hero = ({ data, mousePosition }) => {
         />
       </div>
 
-      {/* Enhanced 3D Floating Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(10)].map((_, i) => (
-          <div
-            key={i}
-            className={`absolute bg-gradient-to-br from-teal-400/30 to-cyan-500/30 rounded-full backdrop-blur-sm border border-teal-300/20 shadow-lg`}
-            style={{
-              width: `${12 + Math.random() * 8}px`,
-              height: `${12 + Math.random() * 8}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              transform: `perspective(1000px) rotateX(${mousePosition.y * (0.1 + i * 0.02)}deg) rotateY(${mousePosition.x * (0.1 + i * 0.02)}deg) translate(${mousePosition.x * (0.02 + i * 0.01)}px, ${mousePosition.y * (0.02 + i * 0.01)}px)`,
-              transition: 'transform 0.6s ease-out',
-              animationDelay: `${i * 0.3}s`,
-              animation: `float ${3 + Math.random() * 2}s ease-in-out infinite`
-            }}
-          />
-        ))}
+      {/* Smooth Floating Geometric Shapes */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Animated gradient circles */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-teal-400/20 to-cyan-400/20 rounded-full blur-2xl animate-pulse" 
+          style={{ animation: 'smoothFloat 8s ease-in-out infinite' }} />
+        <div className="absolute top-40 right-20 w-40 h-40 bg-gradient-to-br from-cyan-300/15 to-teal-300/15 rounded-full blur-2xl animate-pulse" 
+          style={{ animation: 'smoothFloat 10s ease-in-out infinite 2s' }} />
+        <div className="absolute bottom-32 left-1/4 w-36 h-36 bg-gradient-to-br from-teal-500/15 to-cyan-500/15 rounded-full blur-2xl animate-pulse" 
+          style={{ animation: 'smoothFloat 12s ease-in-out infinite 4s' }} />
+        
+        {/* Animated geometric shapes */}
+        <div className="absolute top-1/3 right-1/3 w-24 h-24 border border-teal-300/30 rounded-lg backdrop-blur-sm rotate-12"
+          style={{ animation: 'rotateSmooth 20s linear infinite' }} />
+        <div className="absolute bottom-1/4 right-1/4 w-20 h-20 border border-cyan-300/30 rounded-full backdrop-blur-sm"
+          style={{ animation: 'scaleSmooth 15s ease-in-out infinite' }} />
+        <div className="absolute top-1/2 left-1/5 w-16 h-16 bg-gradient-to-br from-teal-400/10 to-transparent rounded-lg backdrop-blur-sm -rotate-12"
+          style={{ animation: 'smoothFloat 14s ease-in-out infinite 3s' }} />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
