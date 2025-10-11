@@ -106,7 +106,7 @@ const ServiceDetail = () => {
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [serviceId, location.state]);
+  }, [identifier, location.state]);
 
   // Handle package selection
   const handlePackageSelect = (packageData) => {
