@@ -254,7 +254,7 @@ const TermsOfService = () => {
             </section>
 
             {/* Signature Section - Protected */}
-            <section className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 border-2 border-teal-200">
+            <section className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 border-2 border-teal-200 signature-protected">
               <div className="flex items-center justify-center mb-6">
                 <Shield className="w-8 h-8 text-teal-600 mr-3" />
                 <h2 className="text-2xl font-bold text-gray-900">Official Signature</h2>
@@ -308,7 +308,7 @@ const TermsOfService = () => {
                   <div className="mt-4 text-center">
                     <div className="inline-flex items-center text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
                       <Lock className="w-3 h-3 mr-1" />
-                      Protected Document
+                      Protected Document - Do Not Copy
                     </div>
                   </div>
                 </div>
