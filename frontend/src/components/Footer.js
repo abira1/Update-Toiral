@@ -136,8 +136,8 @@ const Footer = () => {
                 <div className="flex items-start space-x-3 group transform hover:translate-x-2 transition-transform duration-300">
                   <Mail className="w-5 h-5 text-teal-400 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
                   <div>
-                    <a href="mailto:contact@toiral.com" className="text-teal-200 group-hover:text-white transition-colors hover:underline">
-                      contact@toiral.com
+                    <a href="mailto:toiral.dev@gmail.com" className="text-teal-200 group-hover:text-white transition-colors hover:underline">
+                      toiral.dev@gmail.com
                     </a>
                   </div>
                 </div>
