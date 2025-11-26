@@ -116,7 +116,7 @@ const SEO = ({
         "@type": "ContactPoint",
         "telephone": "+880-1804-673095",
         "contactType": "customer service",
-        "email": "contact@toiral.com"
+        "email": "toiral.dev@gmail.com"
       },
       "sameAs": [
         "https://www.instagram.com/toiral.offical/",
