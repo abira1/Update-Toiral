@@ -217,6 +217,18 @@ frontend:
           agent: "main"
           comment: "Removed 'Projects' link from main navigation in Header.js. Updated navLinks array to exclude Projects entry, now showing: About, Services, Courses, Portfolio, Team, Contact. Enhanced navigation scrolling behavior to properly scroll to section tops with 100px offset for fixed header. Replaced scrollIntoView() with getBoundingClientRect() + window.scrollTo() for precise positioning. Updated both Header.js (same-page navigation) and Home.js (cross-page navigation) with consistent scroll positioning that ensures sections start from top instead of end."
 
+  - task: "Fix project portfolio manager - order and featured settings"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/components/Projects.js, frontend/src/pages/admin/ComprehensiveDashboard.js, frontend/src/components/admin/DashboardForms.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Fixed project portfolio manager issues in admin panel. Changes: 1) Home screen now shows only FEATURED projects sorted by order field (projects with order 1, 2, 3 appear first in that sequence). 2) Updated Projects.js component to filter for featured=true projects and sort by order (ascending). 3) Admin dashboard now displays order number on project cards for easy visibility. 4) Enhanced ProjectForm with clearer order field explanation and prominent featured toggle with helper text explaining that only featured projects with lowest order numbers (1, 2, 3) appear on home screen. 5) Added visual Badge showing 'Order: X' on each project card in admin panel. Project display now correctly respects both featured status and order settings."
+
 
   - task: "Updated Terms of Service page with new Privacy Policy & Terms and Conditions"
     implemented: true
