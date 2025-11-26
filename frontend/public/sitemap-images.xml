@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Homepage with Logo -->
+  <url>
+    <loc>https://toiral-development.web.app/</loc>
+    <lastmod>2025-07-15</lastmod>
+    <image:image>
+      <image:loc>https://toiral-development.web.app/toiral-logo.png</image:loc>
+      <image:title>Toiral - Professional Web Development Agency</image:title>
+      <image:caption>Toiral professional web development and design agency logo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://toiral-development.web.app/toiral-favicon.png</image:loc>
+      <image:title>Toiral Favicon</image:title>
+      <image:caption>Toiral web development company favicon</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://toiral-development.web.app/about</loc>
+    <lastmod>2025-07-15</lastmod>
+    <image:image>
+      <image:loc>https://toiral-development.web.app/toiral-logo.png</image:loc>
+      <image:title>About Toiral Web Development Team</image:title>
+      <image:caption>Learn about Toiral professional web development team</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Services Overview -->
+  <url>
+    <loc>https://toiral-development.web.app/services</loc>
+    <lastmod>2025-07-15</lastmod>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1460925895917-afdab827c52f</image:loc>
+      <image:title>Web Development Services</image:title>
+      <image:caption>Professional web development and design services</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Portfolio Page -->
+  <url>
+    <loc>https://toiral-development.web.app/portfolio</loc>
+    <lastmod>2025-07-15</lastmod>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1467232004584-a241de8bcf5d</image:loc>
+      <image:title>Web Development Portfolio</image:title>
+      <image:caption>Portfolio showcasing Toiral's web development projects</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Service Detail Pages -->
+  <url>
+    <loc>https://toiral-development.web.app/services/web-design-development</loc>
+    <lastmod>2025-07-15</lastmod>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1460925895917-afdab827c52f</image:loc>
+      <image:title>Custom Web Design and Development Services</image:title>
+      <image:caption>Professional custom web design and development solutions</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://toiral-development.web.app/services/seo-services</loc>
+    <lastmod>2025-07-15</lastmod>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1553877522-43269d4ea984</image:loc>
+      <image:title>SEO Optimization Services</image:title>
+      <image:caption>Search engine optimization and digital marketing services</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://toiral-development.web.app/services/full-stack-solutions</loc>
+    <lastmod>2025-07-15</lastmod>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1517180102446-f3ece451e9d8</image:loc>
+      <image:title>Full Stack Development Solutions</image:title>
+      <image:caption>Complete full-stack web development solutions</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Team Page -->
+  <url>
+    <loc>https://toiral-development.web.app/team</loc>
+    <lastmod>2025-07-15</lastmod>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1556157382-97eda2d62296</image:loc>
+      <image:title>Toiral Development Team</image:title>
+      <image:caption>Meet the professional web development team at Toiral</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
