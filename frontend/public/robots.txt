@@ -389,12 +389,13 @@ Disallow: /
 # SITEMAP AND HOST INFORMATION
 # ==========================================
 
-# Main sitemap location
-Sitemap: https://toiral-development.web.app/sitemap.xml
+# Main sitemap index (references all sitemaps)
+Sitemap: https://toiral-development.web.app/sitemap-index.xml
 
-# Alternative sitemap locations (if you have multiple)
-# Sitemap: https://toiral-development.web.app/sitemap-images.xml
-# Sitemap: https://toiral-development.web.app/sitemap-news.xml
+# Individual sitemaps (also accessible)
+Sitemap: https://toiral-development.web.app/sitemap.xml
+Sitemap: https://toiral-development.web.app/sitemap-services.xml
+Sitemap: https://toiral-development.web.app/sitemap-images.xml
 
 # Host declaration (helps with international SEO)
 Host: https://toiral-development.web.app
