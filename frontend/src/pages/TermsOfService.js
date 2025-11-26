@@ -274,16 +274,26 @@ const TermsOfService = () => {
                     WebkitTouchCallout: 'none'
                   }}
                 >
-                  {/* Watermark overlay */}
+                  {/* Watermark overlay with logo */}
                   <div 
                     className="absolute inset-0 pointer-events-none z-10 flex items-center justify-center"
                     style={{
                       background: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(20, 184, 166, 0.03) 35px, rgba(20, 184, 166, 0.03) 70px)'
                     }}
                   >
-                    <div className="text-teal-600 opacity-10 text-6xl font-bold transform rotate-45">
-                      TOIRAL
-                    </div>
+                    <img 
+                      src="https://customer-assets.emergentagent.com/job_signed-tos/artifacts/lppx7sg6_toiral%20%282%29.png"
+                      alt="Toiral Logo Watermark"
+                      className="transform rotate-45"
+                      style={{
+                        width: '200px',
+                        height: 'auto',
+                        opacity: 0.08,
+                        pointerEvents: 'none',
+                        userSelect: 'none'
+                      }}
+                      draggable="false"
+                    />
                   </div>
                   
                   {/* Protected Image */}
