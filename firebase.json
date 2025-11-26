@@ -12,7 +12,12 @@
     "rewrites": [
       {
         "source": "**",
-        "destination": "/index.html"
+        "destination": "/index.html",
+        "exclude": [
+          "sitemap*.xml",
+          "robots.txt",
+          "**/*.@(xml|txt)"
+        ]
       }
     ],
     "headers": [
