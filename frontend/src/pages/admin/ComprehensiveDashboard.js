@@ -826,12 +826,17 @@ const ComprehensiveDashboard = () => {
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <Badge variant="secondary">{project.category}</Badge>
-                        {project.featured && (
-                          <Badge variant="default">
-                            <Star className="w-3 h-3 mr-1" />
-                            Featured
+                        <div className="flex items-center gap-2">
+                          {project.featured && (
+                            <Badge variant="default">
+                              <Star className="w-3 h-3 mr-1" />
+                              Featured
+                            </Badge>
+                          )}
+                          <Badge variant="outline" className="text-xs">
+                            Order: {project.order || 0}
                           </Badge>
-                        )}
+                        </div>
                       </div>
                       {project.technologies && project.technologies.length > 0 && (
                         <div className="flex flex-wrap gap-1">
