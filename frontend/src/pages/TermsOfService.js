@@ -32,6 +32,42 @@ const TermsOfService = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-teal-50 to-cyan-50">
+      {/* Additional CSS for signature protection */}
+      <style>{`
+        /* Prevent screenshot keyboard shortcuts */
+        @media print {
+          .signature-protected {
+            display: none !important;
+          }
+        }
+        
+        /* Disable selection and copying */
+        .signature-protected,
+        .signature-protected * {
+          -webkit-user-select: none !important;
+          -moz-user-select: none !important;
+          -ms-user-select: none !important;
+          user-select: none !important;
+          -webkit-touch-callout: none !important;
+        }
+        
+        /* Prevent drag operations */
+        .signature-protected img {
+          -webkit-user-drag: none !important;
+          -khtml-user-drag: none !important;
+          -moz-user-drag: none !important;
+          -o-user-drag: none !important;
+          user-drag: none !important;
+          pointer-events: none !important;
+        }
+        
+        /* Prevent context menu */
+        .signature-protected {
+          -webkit-user-select: none;
+          -webkit-touch-callout: none;
+        }
+      `}</style>
+      
       <Header mousePosition={mousePosition} />
       
       <div className="pt-20 pb-16">
