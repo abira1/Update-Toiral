@@ -20,7 +20,7 @@ NC='\033[0m' # No Color
 
 # Check 1: Verify all dates are July 2025
 echo -e "${BLUE}[1/8] Checking sitemap dates...${NC}"
-JULY_COUNT=$(grep -c "2025-07-15" /app/frontend/public/sitemap*.xml)
+JULY_COUNT=$(grep "2025-07-15" /app/frontend/public/sitemap*.xml | wc -l)
 if [ "$JULY_COUNT" -eq 30 ]; then
     echo -e "${GREEN}✅ All 30 dates updated to July 15, 2025${NC}"
 else
