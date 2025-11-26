@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, FileText, Users, CreditCard, Shield, AlertTriangle, Mail } from 'lucide-react';
+import { ArrowLeft, FileText, Shield, AlertTriangle, Mail, Lock, Scale, DollarSign, Package, Users, Gavel } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -18,6 +18,17 @@ const TermsOfService = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
+  // Security functions for signature protection
+  const handleContextMenu = (e) => {
+    e.preventDefault();
+    return false;
+  };
+
+  const handleDragStart = (e) => {
+    e.preventDefault();
+    return false;
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-teal-50 to-cyan-50">
@@ -42,10 +53,10 @@ const TermsOfService = () => {
             </div>
             
             <h1 className="text-4xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent mb-4">
-              Terms of Service
+              Privacy Policy & Terms and Conditions
             </h1>
             <p className="text-gray-600 text-lg">
-              Please read these terms carefully before using our services.
+              Toiral Web Development Company
             </p>
             <p className="text-sm text-gray-500 mt-2">
               Last updated: {new Date().toLocaleDateString()}
