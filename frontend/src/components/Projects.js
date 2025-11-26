@@ -86,7 +86,7 @@ const Projects = ({ data, mousePosition }) => {
             Discover how we've transformed brands through innovative design and development, creating digital experiences that tell compelling stories.
             {hasMoreProjects && (
               <span className="block mt-2 text-lg text-teal-600 font-medium">
-                Showing 3 of {data.length} amazing projects
+                Showing 3 of {totalFeaturedProjects} featured projects
               </span>
             )}
           </p>
