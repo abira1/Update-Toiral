@@ -217,6 +217,19 @@ frontend:
           agent: "main"
           comment: "Removed 'Projects' link from main navigation in Header.js. Updated navLinks array to exclude Projects entry, now showing: About, Services, Courses, Portfolio, Team, Contact. Enhanced navigation scrolling behavior to properly scroll to section tops with 100px offset for fixed header. Replaced scrollIntoView() with getBoundingClientRect() + window.scrollTo() for precise positioning. Updated both Header.js (same-page navigation) and Home.js (cross-page navigation) with consistent scroll positioning that ensures sections start from top instead of end."
 
+
+  - task: "Updated Terms of Service page with new Privacy Policy & Terms and Conditions"
+    implemented: true
+    working: true
+    file: "frontend/src/pages/TermsOfService.js, frontend/src/components/Footer.js, frontend/src/components/SEO.js, frontend/src/components/ErrorBoundary.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Completely updated Terms of Service page with comprehensive Privacy Policy & Terms and Conditions for Toiral Web Development Company. Content includes all 10 sections: 1) Privacy Policy (client confidentiality, data security, digital compliance), 2) Payment Policy (no payment without agreement, payment confirmation, transparent pricing), 3) Work Handover & Hosting, 4) Client Responsibilities, 5) Legal Compliance (Bangladesh laws), 6) Consequences of Breach, 7) Intellectual Property, 8) Dispute Resolution, 9) Agreement Acknowledgment, 10) Contact Information with all details (email: toiral.dev@gmail.com, WhatsApp, phones, location, website). Added signature section with full security protections: disabled right-click, drag-drop, text selection, watermark overlay, print protection, and 'Protected Document - Do Not Copy' badge. Updated email from contact@toiral.com to toiral.dev@gmail.com across all components (Footer, SEO structured data, ErrorBoundary). Tested and verified all sections display correctly with proper styling, icons, and responsive design."
+
 metadata:
   created_by: "testing_agent"
   version: "1.0"
