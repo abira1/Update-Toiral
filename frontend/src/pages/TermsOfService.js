@@ -66,268 +66,221 @@ const TermsOfService = () => {
           {/* Content */}
           <div className="bg-white rounded-2xl shadow-xl p-8 space-y-8">
             
-            {/* Acceptance of Terms */}
+            {/* 1. Privacy Policy */}
             <section>
               <div className="flex items-center mb-4">
-                <FileText className="w-6 h-6 text-teal-600 mr-3" />
-                <h2 className="text-2xl font-bold text-gray-900">Acceptance of Terms</h2>
+                <Lock className="w-6 h-6 text-teal-600 mr-3" />
+                <h2 className="text-2xl font-bold text-gray-900">1. Privacy Policy</h2>
               </div>
               <div className="space-y-4 text-gray-700">
-                <p>By accessing and using Toiral's website and services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.</p>
-                <p>These Terms of Service ("Terms") govern your use of our website located at toiral-development.web.app (the "Service") operated by Toiral ("us", "we", or "our").</p>
+                <p>At Toiral Web Development Company, the privacy and confidentiality of our clients are of utmost importance.</p>
+                
+                <div className="space-y-3">
+                  <p><strong className="text-gray-900">Client Information:</strong> We do not share or make public any project details, personal information, or related content of our clients under any circumstances.</p>
+                  
+                  <p><strong className="text-gray-900">Data Security:</strong> All project files, credentials, and communications are stored securely. Access is restricted to authorized personnel only.</p>
+                  
+                  <p><strong className="text-gray-900">Digital Compliance:</strong> We follow industry-standard security practices for data protection, encryption, and backup.</p>
+                </div>
               </div>
             </section>
 
-            {/* Services Description */}
+            {/* 2. Payment Policy */}
+            <section>
+              <div className="flex items-center mb-4">
+                <DollarSign className="w-6 h-6 text-teal-600 mr-3" />
+                <h2 className="text-2xl font-bold text-gray-900">2. Payment Policy</h2>
+              </div>
+              <div className="space-y-4 text-gray-700">
+                <p><strong className="text-gray-900">No Payment Without Agreement:</strong> Payments are accepted only after a signed agreement is in place.</p>
+                
+                <p><strong className="text-gray-900">Payment Confirmation:</strong> Once payment is received, a payment confirmation PDF is issued, watermarked with the Toiral official logo and signed by the founder.</p>
+                
+                <p><strong className="text-gray-900">Transparent Pricing:</strong> No hidden fees are applied. All payment breakdowns and deliverables are included in the final project summary.</p>
+                
+                <p><strong className="text-gray-900">Project Start & Changes:</strong> After the project begins, clients can request feature changes. These changes will be included in the next phase of the project as agreed.</p>
+              </div>
+            </section>
+
+            {/* 3. Work Handover & Hosting */}
+            <section>
+              <div className="flex items-center mb-4">
+                <Package className="w-6 h-6 text-teal-600 mr-3" />
+                <h2 className="text-2xl font-bold text-gray-900">3. Work Handover & Hosting</h2>
+              </div>
+              <div className="space-y-4 text-gray-700">
+                <p><strong className="text-gray-900">Deliverables:</strong> All project files, source codes, credentials, and documentation are handed over after final payment confirmation.</p>
+                
+                <p><strong className="text-gray-900">Hosting & Domain:</strong> Clients may provide their own hosting and domain. If required, Toiral can manage hosting setup and deployment.</p>
+                
+                <p><strong className="text-gray-900">Late Delivery Penalty:</strong> In case of project delay caused by Toiral without valid reasons, we will compensate the client as per the contract terms.</p>
+              </div>
+            </section>
+
+            {/* 4. Client Responsibilities */}
             <section>
               <div className="flex items-center mb-4">
                 <Users className="w-6 h-6 text-teal-600 mr-3" />
-                <h2 className="text-2xl font-bold text-gray-900">Our Services</h2>
+                <h2 className="text-2xl font-bold text-gray-900">4. Client Responsibilities</h2>
               </div>
               <div className="space-y-4 text-gray-700">
-                <p>Toiral provides web development and digital services including:</p>
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Custom website design and development</li>
-                  <li>Web application development</li>
-                  <li>E-commerce solutions</li>
-                  <li>SEO and digital marketing services</li>
-                  <li>Website maintenance and support</li>
-                  <li>Consulting and technical advisory services</li>
-                </ul>
-                <p>All services are provided subject to these Terms and any additional agreements we may enter into with you.</p>
+                <p><strong className="text-gray-900">Timely Payment:</strong> Clients must make payments as agreed. Delayed payments without valid reasons may result in legal action under Bangladesh law.</p>
+                
+                <p><strong className="text-gray-900">Accurate Requirements:</strong> Clients must provide clear and accurate project requirements. Mid-project changes may impact delivery timelines.</p>
               </div>
             </section>
 
-            {/* User Responsibilities */}
+            {/* 5. Legal Compliance */}
             <section>
               <div className="flex items-center mb-4">
-                <Shield className="w-6 h-6 text-teal-600 mr-3" />
-                <h2 className="text-2xl font-bold text-gray-900">User Responsibilities</h2>
+                <Scale className="w-6 h-6 text-teal-600 mr-3" />
+                <h2 className="text-2xl font-bold text-gray-900">5. Legal Compliance</h2>
               </div>
               <div className="space-y-4 text-gray-700">
-                <p>When using our services, you agree to:</p>
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Provide accurate and complete information</li>
-                  <li>Maintain the confidentiality of your account credentials</li>
-                  <li>Use our services only for lawful purposes</li>
-                  <li>Respect intellectual property rights</li>
-                  <li>Not interfere with or disrupt our services</li>
-                  <li>Comply with all applicable laws and regulations</li>
-                </ul>
+                <p>Both parties agree to comply with the laws of Bangladesh. Key applicable laws include:</p>
                 
-                <h3 className="text-lg font-semibold text-gray-800 mt-6">Prohibited Uses</h3>
-                <p>You may not use our services to:</p>
                 <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Violate any laws or regulations</li>
-                  <li>Infringe on intellectual property rights</li>
-                  <li>Transmit harmful or malicious content</li>
-                  <li>Engage in fraudulent or deceptive practices</li>
-                  <li>Spam or send unsolicited communications</li>
-                  <li>Attempt to gain unauthorized access to our systems</li>
+                  <li><strong>Penal Code, 1860:</strong> Cheating, fraud, dishonest inducement. Sections 415, 417, 418, 419, 420, 421–424 apply.</li>
+                  <li><strong>Contract Act, 1872:</strong> Governs offer, acceptance, performance, and breach of contract.</li>
+                  <li><strong>ICT Act, 2006:</strong> Covers digital offences including hacking, tampering, or unauthorized access.</li>
+                  <li><strong>Digital Security Act, 2018:</strong> Online offences including digital impersonation, fake content, or cyber fraud.</li>
+                  <li><strong>Cyber Security Act, 2023 & Cyber Security Ordinance, 2025:</strong> Enhanced regulations for online fraud, digital identity misuse, and AI-related offences.</li>
                 </ul>
               </div>
             </section>
 
-            {/* Payment Terms */}
-            <section>
-              <div className="flex items-center mb-4">
-                <CreditCard className="w-6 h-6 text-teal-600 mr-3" />
-                <h2 className="text-2xl font-bold text-gray-900">Payment Terms</h2>
-              </div>
-              <div className="space-y-4 text-gray-700">
-                <h3 className="text-lg font-semibold text-gray-800">Pricing and Payments</h3>
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>All prices are quoted in USD unless otherwise specified</li>
-                  <li>Payment terms will be specified in individual project agreements</li>
-                  <li>We typically require a deposit before starting work</li>
-                  <li>Final payment is due upon project completion</li>
-                  <li>Late payments may incur additional fees</li>
-                </ul>
-                
-                <h3 className="text-lg font-semibold text-gray-800 mt-6">Refunds</h3>
-                <p>Refund policies vary by service type and will be specified in your project agreement. Generally:</p>
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Deposits are non-refundable once work has commenced</li>
-                  <li>Refunds for completed work are not typically provided</li>
-                  <li>Disputes will be handled on a case-by-case basis</li>
-                </ul>
-              </div>
-            </section>
-
-            {/* Intellectual Property */}
-            <section>
-              <div className="flex items-center mb-4">
-                <Shield className="w-6 h-6 text-teal-600 mr-3" />
-                <h2 className="text-2xl font-bold text-gray-900">Intellectual Property</h2>
-              </div>
-              <div className="space-y-4 text-gray-700">
-                <h3 className="text-lg font-semibold text-gray-800">Our Rights</h3>
-                <p>Toiral retains ownership of:</p>
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Our proprietary tools, frameworks, and methodologies</li>
-                  <li>Pre-existing intellectual property</li>
-                  <li>General knowledge and experience gained</li>
-                </ul>
-                
-                <h3 className="text-lg font-semibold text-gray-800 mt-6">Your Rights</h3>
-                <p>Upon full payment, you will own:</p>
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Custom code developed specifically for your project</li>
-                  <li>Design assets created for your brand</li>
-                  <li>Content you provide or we create on your behalf</li>
-                </ul>
-                
-                <p className="text-sm text-gray-600 bg-gray-50 p-4 rounded-lg">
-                  <strong>Note:</strong> Third-party components, libraries, and tools remain subject to their respective licenses.
-                </p>
-              </div>
-            </section>
-
-            {/* Project Delivery */}
-            <section>
-              <div className="flex items-center mb-4">
-                <FileText className="w-6 h-6 text-teal-600 mr-3" />
-                <h2 className="text-2xl font-bold text-gray-900">Project Delivery and Timelines</h2>
-              </div>
-              <div className="space-y-4 text-gray-700">
-                <p>Project timelines and deliverables will be specified in individual project agreements. Please note:</p>
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Timelines are estimates and may be subject to change</li>
-                  <li>Delays caused by client feedback or changes may extend timelines</li>
-                  <li>We will communicate any potential delays promptly</li>
-                  <li>Final delivery is contingent upon full payment</li>
-                </ul>
-                
-                <h3 className="text-lg font-semibold text-gray-800 mt-6">Revisions and Changes</h3>
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Minor revisions are typically included in project scope</li>
-                  <li>Major changes may require additional time and cost</li>
-                  <li>Change requests should be submitted in writing</li>
-                  <li>We will provide estimates for additional work</li>
-                </ul>
-              </div>
-            </section>
-
-            {/* Warranties and Disclaimers */}
+            {/* 6. Consequences of Breach */}
             <section>
               <div className="flex items-center mb-4">
                 <AlertTriangle className="w-6 h-6 text-teal-600 mr-3" />
-                <h2 className="text-2xl font-bold text-gray-900">Warranties and Disclaimers</h2>
+                <h2 className="text-2xl font-bold text-gray-900">6. Consequences of Breach</h2>
               </div>
               <div className="space-y-4 text-gray-700">
-                <h3 className="text-lg font-semibold text-gray-800">Our Warranties</h3>
-                <p>We warrant that our services will be performed with professional skill and care. We will:</p>
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Deliver services that meet agreed specifications</li>
-                  <li>Use industry-standard practices and technologies</li>
-                  <li>Provide reasonable support during development</li>
-                </ul>
+                <p><strong className="text-gray-900">Toiral Breach:</strong> If Toiral violates any commitments (payment transparency, security, delivery), legal action can be taken under Bangladesh law.</p>
                 
-                <h3 className="text-lg font-semibold text-gray-800 mt-6">Disclaimers</h3>
-                <p>Except as expressly stated, our services are provided "as is" without warranties of any kind. We disclaim:</p>
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Warranties of merchantability or fitness for a particular purpose</li>
-                  <li>Guarantees of specific business results or outcomes</li>
-                  <li>Responsibility for third-party services or components</li>
-                  <li>Liability for data loss or security breaches beyond our control</li>
-                </ul>
+                <p><strong className="text-gray-900">Client Breach:</strong> Clients who delay payments without valid reasons after project delivery may also be held liable under the Penal Code, 1860 for cheating, with potential imprisonment or fines.</p>
               </div>
             </section>
 
-            {/* Limitation of Liability */}
+            {/* 7. Intellectual Property */}
             <section>
               <div className="flex items-center mb-4">
                 <Shield className="w-6 h-6 text-teal-600 mr-3" />
-                <h2 className="text-2xl font-bold text-gray-900">Limitation of Liability</h2>
+                <h2 className="text-2xl font-bold text-gray-900">7. Intellectual Property</h2>
               </div>
               <div className="space-y-4 text-gray-700">
-                <p>To the maximum extent permitted by law, Toiral's liability is limited as follows:</p>
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Our total liability shall not exceed the amount paid for the specific service</li>
-                  <li>We are not liable for indirect, incidental, or consequential damages</li>
-                  <li>We are not responsible for loss of profits, data, or business opportunities</li>
-                  <li>Claims must be brought within one year of the incident</li>
-                </ul>
-                <p className="text-sm text-gray-600 bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
-                  <strong>Important:</strong> Some jurisdictions do not allow limitation of liability, so these limitations may not apply to you.
-                </p>
-              </div>
-            </section>
-
-            {/* Termination */}
-            <section>
-              <div className="flex items-center mb-4">
-                <AlertTriangle className="w-6 h-6 text-teal-600 mr-3" />
-                <h2 className="text-2xl font-bold text-gray-900">Termination</h2>
-              </div>
-              <div className="space-y-4 text-gray-700">
-                <p>Either party may terminate services under the following conditions:</p>
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>With written notice as specified in project agreements</li>
-                  <li>Immediately for material breach of these Terms</li>
-                  <li>For non-payment of fees when due</li>
-                </ul>
+                <p><strong className="text-gray-900">Ownership:</strong> Ownership of delivered work transfers to the client after full payment.</p>
                 
-                <h3 className="text-lg font-semibold text-gray-800 mt-6">Effect of Termination</h3>
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>You remain liable for all fees incurred before termination</li>
-                  <li>We will deliver completed work upon payment</li>
-                  <li>Confidentiality obligations survive termination</li>
-                  <li>We may retain copies of work for our records</li>
-                </ul>
+                <p><strong className="text-gray-900">Portfolio Rights:</strong> Toiral reserves the right to showcase the project in its portfolio unless explicitly requested otherwise in writing.</p>
               </div>
             </section>
 
-            {/* Governing Law */}
+            {/* 8. Dispute Resolution */}
+            <section>
+              <div className="flex items-center mb-4">
+                <Gavel className="w-6 h-6 text-teal-600 mr-3" />
+                <h2 className="text-2xl font-bold text-gray-900">8. Dispute Resolution</h2>
+              </div>
+              <div className="space-y-4 text-gray-700">
+                <p><strong className="text-gray-900">Discussion First:</strong> Disputes arising from this agreement will first be addressed through mutual discussion.</p>
+                
+                <p><strong className="text-gray-900">Legal Resolution:</strong> If unresolved, disputes will be settled in a Bangladesh court of competent jurisdiction under applicable laws.</p>
+              </div>
+            </section>
+
+            {/* 9. Agreement Acknowledgment */}
             <section>
               <div className="flex items-center mb-4">
                 <FileText className="w-6 h-6 text-teal-600 mr-3" />
-                <h2 className="text-2xl font-bold text-gray-900">Governing Law</h2>
+                <h2 className="text-2xl font-bold text-gray-900">9. Agreement Acknowledgment</h2>
               </div>
               <div className="space-y-4 text-gray-700">
-                <p>These Terms are governed by the laws of Bangladesh. Any disputes will be resolved through:</p>
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Good faith negotiation between the parties</li>
-                  <li>Mediation if negotiation fails</li>
-                  <li>Arbitration or court proceedings in Dhaka, Bangladesh</li>
-                </ul>
+                <p>By engaging Toiral Web Development Company, clients acknowledge and accept all terms above. Both parties agree to maintain confidentiality, timely payments, and project commitments. No hidden fees are included.</p>
               </div>
             </section>
 
-            {/* Changes to Terms */}
-            <section>
-              <div className="flex items-center mb-4">
-                <FileText className="w-6 h-6 text-teal-600 mr-3" />
-                <h2 className="text-2xl font-bold text-gray-900">Changes to Terms</h2>
-              </div>
-              <div className="space-y-4 text-gray-700">
-                <p>We reserve the right to modify these Terms at any time. We will notify you of changes by:</p>
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Posting updated Terms on our website</li>
-                  <li>Updating the "Last updated" date</li>
-                  <li>Sending email notifications for material changes</li>
-                </ul>
-                <p>Your continued use of our services after changes become effective constitutes acceptance of the updated Terms.</p>
-              </div>
-            </section>
-
-            {/* Contact Information */}
+            {/* 10. Contact Information */}
             <section className="bg-teal-50 rounded-xl p-6">
               <div className="flex items-center mb-4">
                 <Mail className="w-6 h-6 text-teal-600 mr-3" />
-                <h2 className="text-2xl font-bold text-gray-900">Contact Us</h2>
+                <h2 className="text-2xl font-bold text-gray-900">10. Contact Information</h2>
               </div>
               <div className="space-y-4 text-gray-700">
-                <p>If you have questions about these Terms of Service, please contact us:</p>
                 <div className="space-y-2">
-                  <p><strong>Email:</strong> <a href="mailto:legal@toiral.com" className="text-teal-600 hover:underline">legal@toiral.com</a></p>
-                  <p><strong>Phone:</strong> <a href="tel:+8801804673095" className="text-teal-600 hover:underline">+880 1804 673095</a></p>
-                  <p><strong>Address:</strong> Dhaka, Bangladesh</p>
+                  <p><strong>Email:</strong> <a href="mailto:toiral.dev@gmail.com" className="text-teal-600 hover:underline">toiral.dev@gmail.com</a></p>
+                  <p><strong>WhatsApp:</strong> <a href="https://wa.me/8801804673095" className="text-teal-600 hover:underline" target="_blank" rel="noopener noreferrer">+8801804673095</a></p>
+                  <p><strong>Phone:</strong> <a href="tel:+8801304082304" className="text-teal-600 hover:underline">+8801304082304</a></p>
+                  <p><strong>Phone:</strong> <a href="tel:+8801533793071" className="text-teal-600 hover:underline">+8801533793071</a></p>
+                  <p><strong>Location:</strong> GM Bari-Satarkul Road, Uttar Badda, Dhaka, Bangladesh</p>
+                  <p><strong>Website:</strong> <a href="https://toiral-development.web.app" className="text-teal-600 hover:underline" target="_blank" rel="noopener noreferrer">https://toiral-development.web.app</a></p>
                 </div>
-                <p className="text-sm text-gray-600">
-                  We will respond to your inquiry within 5 business days.
-                </p>
               </div>
+            </section>
+
+            {/* Signature Section - Protected */}
+            <section className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 border-2 border-teal-200">
+              <div className="flex items-center justify-center mb-6">
+                <Shield className="w-8 h-8 text-teal-600 mr-3" />
+                <h2 className="text-2xl font-bold text-gray-900">Official Signature</h2>
+              </div>
+              
+              <div className="relative max-w-md mx-auto">
+                {/* Security wrapper */}
+                <div 
+                  className="relative bg-white rounded-lg p-6 shadow-lg"
+                  onContextMenu={handleContextMenu}
+                  onDragStart={handleDragStart}
+                  style={{
+                    userSelect: 'none',
+                    WebkitUserSelect: 'none',
+                    MozUserSelect: 'none',
+                    msUserSelect: 'none',
+                    WebkitTouchCallout: 'none'
+                  }}
+                >
+                  {/* Watermark overlay */}
+                  <div 
+                    className="absolute inset-0 pointer-events-none z-10 flex items-center justify-center"
+                    style={{
+                      background: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(20, 184, 166, 0.03) 35px, rgba(20, 184, 166, 0.03) 70px)'
+                    }}
+                  >
+                    <div className="text-teal-600 opacity-10 text-6xl font-bold transform rotate-45">
+                      TOIRAL
+                    </div>
+                  </div>
+                  
+                  {/* Protected Image */}
+                  <img 
+                    src="https://customer-assets.emergentagent.com/job_b6111bbb-b4b7-46a3-9b0e-54e3959590c7/artifacts/v6i6m614_Signature%20%281%29.png"
+                    alt="Official Signature"
+                    className="w-full h-auto"
+                    draggable="false"
+                    onContextMenu={handleContextMenu}
+                    onDragStart={handleDragStart}
+                    style={{
+                      pointerEvents: 'none',
+                      userSelect: 'none',
+                      WebkitUserSelect: 'none',
+                      MozUserSelect: 'none',
+                      msUserSelect: 'none',
+                      WebkitTouchCallout: 'none'
+                    }}
+                  />
+                  
+                  {/* Protection notice */}
+                  <div className="mt-4 text-center">
+                    <div className="inline-flex items-center text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                      <Lock className="w-3 h-3 mr-1" />
+                      Protected Document
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <p className="text-center text-sm text-gray-600 mt-6">
+                This document ensures mutual trust, legal protection, and clarity for both Toiral Web Development Company and its clients.
+              </p>
             </section>
           </div>
         </div>
