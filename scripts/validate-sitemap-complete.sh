@@ -44,7 +44,7 @@ echo ""
 
 # Check 3: Verify no fragment URLs
 echo -e "${BLUE}[3/8] Checking for fragment URLs (#)...${NC}"
-FRAGMENTS=$(grep "#" /app/frontend/public/sitemap*.xml | grep -v "<!--" | grep -c "<loc>" || echo "0")
+FRAGMENTS=$(grep "#" /app/frontend/public/sitemap*.xml 2>/dev/null | grep -v "<!--" | grep "<loc>" | wc -l || echo "0")
 if [ "$FRAGMENTS" -eq 0 ]; then
     echo -e "${GREEN}✅ No fragment URLs found${NC}"
 else
