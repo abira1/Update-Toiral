@@ -7,19 +7,19 @@
   <!-- Main Pages Sitemap -->
   <sitemap>
     <loc>https://toiral-development.web.app/sitemap.xml</loc>
-    <lastmod>2025-11-26T00:00:00+00:00</lastmod>
+    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
   </sitemap>
 
   <!-- Services Sitemap -->
   <sitemap>
     <loc>https://toiral-development.web.app/sitemap-services.xml</loc>
-    <lastmod>2025-11-26T00:00:00+00:00</lastmod>
+    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
   </sitemap>
 
   <!-- Images Sitemap -->
   <sitemap>
     <loc>https://toiral-development.web.app/sitemap-images.xml</loc>
-    <lastmod>2025-11-26T00:00:00+00:00</lastmod>
+    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
   </sitemap>
 
 </sitemapindex>

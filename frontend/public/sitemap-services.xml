@@ -7,7 +7,7 @@
   <!-- Services Overview Page -->
   <url>
     <loc>https://toiral-development.web.app/services</loc>
-    <lastmod>2025-11-26</lastmod>
+    <lastmod>2025-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -15,28 +15,28 @@
   <!-- Service Detail Pages - SEO-Friendly URLs -->
   <url>
     <loc>https://toiral-development.web.app/services/web-design-development</loc>
-    <lastmod>2025-11-26</lastmod>
+    <lastmod>2025-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://toiral-development.web.app/services/seo-services</loc>
-    <lastmod>2025-11-26</lastmod>
+    <lastmod>2025-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://toiral-development.web.app/services/admin-panels</loc>
-    <lastmod>2025-11-26</lastmod>
+    <lastmod>2025-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://toiral-development.web.app/services/full-stack-solutions</loc>
-    <lastmod>2025-11-26</lastmod>
+    <lastmod>2025-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -44,28 +44,28 @@
   <!-- Legacy Service URLs - Backward Compatibility -->
   <url>
     <loc>https://toiral-development.web.app/service/1</loc>
-    <lastmod>2025-11-26</lastmod>
+    <lastmod>2025-07-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://toiral-development.web.app/service/2</loc>
-    <lastmod>2025-11-26</lastmod>
+    <lastmod>2025-07-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://toiral-development.web.app/service/3</loc>
-    <lastmod>2025-11-26</lastmod>
+    <lastmod>2025-07-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://toiral-development.web.app/service/4</loc>
-    <lastmod>2025-11-26</lastmod>
+    <lastmod>2025-07-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
