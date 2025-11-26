@@ -14,9 +14,15 @@ const Projects = ({ data, mousePosition }) => {
   const sectionRef = useRef(null);
   const navigate = useNavigate();
 
-  // Show only first 3 projects for featured section
-  const featuredProjects = data ? data.slice(0, 3) : [];
-  const hasMoreProjects = data && data.length > 3;
+  // Filter for featured projects only and sort by order
+  const featuredProjects = data 
+    ? data
+        .filter(project => project.featured === true)
+        .sort((a, b) => (a.order || 0) - (b.order || 0))
+        .slice(0, 3)
+    : [];
+  const totalFeaturedProjects = data ? data.filter(project => project.featured === true).length : 0;
+  const hasMoreProjects = totalFeaturedProjects > 3;
 
 
   useEffect(() => {
