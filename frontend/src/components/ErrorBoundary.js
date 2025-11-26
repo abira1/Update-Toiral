@@ -64,7 +64,7 @@ URL: ${window.location.href}
 Timestamp: ${new Date().toISOString()}
     `);
     
-    window.open(`mailto:support@toiral.com?subject=${subject}&body=${body}`);
+    window.open(`mailto:toiral.dev@gmail.com?subject=${subject}&body=${body}`);
   };
 
   render() {
