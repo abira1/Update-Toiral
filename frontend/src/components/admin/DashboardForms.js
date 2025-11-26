@@ -1046,51 +1046,62 @@ export const ProjectForm = ({ project, onSave, onCancel, loading, existingProjec
             {errors.description && <p className="text-sm text-red-500">{errors.description}</p>}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="category">Project Category *</Label>
-              <Select value={formData.category} onValueChange={(value) => handleChange('category', value)}>
-                <SelectTrigger className={`${errors.category ? 'border-red-500' : ''} h-11`}>
-                  <SelectValue placeholder="Choose project category..." />
-                </SelectTrigger>
-                <SelectContent className="max-h-80">
-                  {/* Popular Categories */}
-                  <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide bg-muted/50">
-                    Popular Categories
-                  </div>
-                  {POPULAR_CATEGORIES.map((category) => (
-                    <SelectItem key={category} value={category} className="font-medium">
-                      {category}
-                    </SelectItem>
-                  ))}
+          <div className="space-y-2">
+            <Label htmlFor="category">Project Category *</Label>
+            <Select value={formData.category} onValueChange={(value) => handleChange('category', value)}>
+              <SelectTrigger className={`${errors.category ? 'border-red-500' : ''} h-11`}>
+                <SelectValue placeholder="Choose project category..." />
+              </SelectTrigger>
+              <SelectContent className="max-h-80">
+                {/* Popular Categories */}
+                <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide bg-muted/50">
+                  Popular Categories
+                </div>
+                {POPULAR_CATEGORIES.map((category) => (
+                  <SelectItem key={category} value={category} className="font-medium">
+                    {category}
+                  </SelectItem>
+                ))}
 
-                  {/* All Categories */}
-                  <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide bg-muted/50 mt-2">
-                    All Categories ({PROJECT_CATEGORIES.length})
-                  </div>
-                  {PROJECT_CATEGORIES.map((category) => (
-                    <SelectItem key={category} value={category}>
-                      {category}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              {errors.category && <p className="text-sm text-red-500">{errors.category}</p>}
-              <p className="text-xs text-muted-foreground">
-                Choose the category that best describes your project
-              </p>
-            </div>
+                {/* All Categories */}
+                <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide bg-muted/50 mt-2">
+                  All Categories ({PROJECT_CATEGORIES.length})
+                </div>
+                {PROJECT_CATEGORIES.map((category) => (
+                  <SelectItem key={category} value={category}>
+                    {category}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            {errors.category && <p className="text-sm text-red-500">{errors.category}</p>}
+            <p className="text-xs text-muted-foreground">
+              Choose the category that best describes your project
+            </p>
+          </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="order">Display Order</Label>
-              <Input
-                id="order"
-                type="number"
-                value={formData.order}
-                onChange={(e) => handleChange('order', parseInt(e.target.value) || 0)}
-                placeholder={getSuggestedDisplayOrder(existingProjects)}
-              />
-            </div>
+          <div className="space-y-2">
+            <Label htmlFor="order" className="flex items-center gap-2">
+              Display Order
+              <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
+                Auto: {project?.id ? 'Current' : getNextDisplayOrder(existingProjects)}
+              </span>
+            </Label>
+            <Input
+              id="order"
+              type="number"
+              min="1"
+              value={formData.order}
+              onChange={(e) => handleChange('order', parseInt(e.target.value) || 1)}
+              placeholder={getNextDisplayOrder(existingProjects).toString()}
+              className="font-mono w-32"
+            />
+            <p className="text-xs text-muted-foreground">
+              {project?.id
+                ? 'Change order to reposition this project. Lower numbers appear first on home screen (1, 2, 3...).'
+                : `Auto-generated order: ${getNextDisplayOrder(existingProjects)}. Featured projects with order 1, 2, 3 will appear on home screen.`
+              }
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
