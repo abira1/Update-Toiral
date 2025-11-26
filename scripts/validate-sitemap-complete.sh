@@ -56,7 +56,7 @@ echo ""
 
 # Check 4: Verify total URL count
 echo -e "${BLUE}[4/8] Counting total URLs...${NC}"
-TOTAL_URLS=$(grep -c "<loc>" /app/frontend/public/sitemap.xml /app/frontend/public/sitemap-services.xml /app/frontend/public/sitemap-images.xml)
+TOTAL_URLS=$(grep "<loc>" /app/frontend/public/sitemap.xml /app/frontend/public/sitemap-services.xml /app/frontend/public/sitemap-images.xml | wc -l)
 if [ "$TOTAL_URLS" -eq 27 ]; then
     echo -e "${GREEN}✅ Exactly 27 URLs found${NC}"
     echo "   • sitemap.xml: $(grep -c "<loc>" /app/frontend/public/sitemap.xml) URLs"
