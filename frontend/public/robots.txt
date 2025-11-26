@@ -62,8 +62,11 @@ Disallow: /api/private/
 Disallow: /tmp/
 Disallow: /cache/
 Disallow: /*.json$
-Disallow: /*.xml$ 
 Disallow: /*.log$
+
+# Allow sitemaps (XML files needed for SEO)
+Allow: /sitemap*.xml
+Allow: /robots.txt
 
 # Prevent indexing of search results and filtered pages
 Disallow: /search?
